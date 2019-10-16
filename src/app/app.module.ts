@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.component';
 import { UserSettingsComponent } from './components/top-nav-bar/user-settings/user-settings.component';
 import { EventsPageComponent } from './components/events-page/events-page.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { UserPreferencesComponent } from './components/top-nav-bar/user-settings/user-preferences/user-preferences.component';
 import { GeneralInfoComponent } from './components/top-nav-bar/user-settings/general-info/general-info.component';
 import { NotificationsComponent } from './components/top-nav-bar/notifications/notifications.component';
@@ -33,14 +34,12 @@ const appRoutes: Routes =  [
     UserSettingsComponent,
     EventsPageComponent,
     UserPreferencesComponent,
-    BottomNavbarComponent,
-    HomeComponent
+    HomeComponent,
     GeneralInfoComponent,
-    NotificationsComponent
+    NotificationsComponent,
     BottomNavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
     CardComponent,
-    AddEventComponent,
     CalendarComponent
   ],
   imports: [
