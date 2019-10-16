@@ -14,6 +14,8 @@ import { NotificationsComponent } from './components/top-nav-bar/notifications/n
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CardComponent } from './components/home/card/card.component';
+import { CalendarComponent } from './components/home/calendar/calendar.component';
 
 const appRoutes: Routes =  [
     {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -37,6 +39,9 @@ const appRoutes: Routes =  [
     NotificationsComponent
     BottomNavbarComponent,
     PageNotFoundComponent
+    CardComponent,
+    AddEventComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
