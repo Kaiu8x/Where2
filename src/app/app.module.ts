@@ -9,6 +9,7 @@ import { UserSettingsComponent } from './components/top-nav-bar/user-settings/us
 import { EventsPageComponent } from './components/events-page/events-page.component';
 import { UserPreferencesComponent } from './components/top-nav-bar/user-settings/user-preferences/user-preferences.component';
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.
     UserSettingsComponent,
     EventsPageComponent,
     UserPreferencesComponent,
-    BottomNavbarComponent
+    BottomNavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
