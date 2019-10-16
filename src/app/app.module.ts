@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,14 @@ import { UserPreferencesComponent } from './components/top-nav-bar/user-settings
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 import { HomeComponent } from './components/home/home.component';
 
+const appRoutes: Routes =  [
+    {path: 'users/:id/settings', component: UserSettingsComponent},
+    {path: 'users/:id', component: GeneralInfoComponent},
+    {path: 'events/:id', component: EventDetailComponent},
+    {path: 'events/', component: EventsPageComponent},
+    {path: 'home', component: HomeComponent},
+    {path: '*', component: PageNotFoundComponent},
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +34,10 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forRoot(appRoutes,
+                         {enableTracing: true}
+                        ),
   ],
   providers: [],
   bootstrap: [AppComponent]
