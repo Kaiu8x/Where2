@@ -8,6 +8,7 @@ import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.compone
 import { UserSettingsComponent } from './components/top-nav-bar/user-settings/user-settings.component';
 import { EventsPageComponent } from './components/events-page/events-page.component';
 import { UserPreferencesComponent } from './components/top-nav-bar/user-settings/user-preferences/user-preferences.component';
+import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { UserPreferencesComponent } from './components/top-nav-bar/user-settings
     TopNavBarComponent,
     UserSettingsComponent,
     EventsPageComponent,
-    UserPreferencesComponent
+    UserPreferencesComponent,
+    BottomNavbarComponent
   ],
   imports: [
     BrowserModule,
