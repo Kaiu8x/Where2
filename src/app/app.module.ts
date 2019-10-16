@@ -8,8 +8,12 @@ import { TopNavBarComponent } from './components/top-nav-bar/top-nav-bar.compone
 import { UserSettingsComponent } from './components/top-nav-bar/user-settings/user-settings.component';
 import { EventsPageComponent } from './components/events-page/events-page.component';
 import { UserPreferencesComponent } from './components/top-nav-bar/user-settings/user-preferences/user-preferences.component';
+<<<<<<< HEAD
 import { GeneralInfoComponent } from './components/top-nav-bar/user-settings/general-info/general-info.component';
 import { NotificationsComponent } from './components/top-nav-bar/notifications/notifications.component';
+=======
+import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
+>>>>>>> 41e36821860f555c9db17aed3be66c34da8b03bf
 
 @NgModule({
   declarations: [
@@ -19,8 +23,12 @@ import { NotificationsComponent } from './components/top-nav-bar/notifications/n
     UserSettingsComponent,
     EventsPageComponent,
     UserPreferencesComponent,
+<<<<<<< HEAD
     GeneralInfoComponent,
     NotificationsComponent
+=======
+    BottomNavbarComponent
+>>>>>>> 41e36821860f555c9db17aed3be66c34da8b03bf
   ],
   imports: [
     BrowserModule,
