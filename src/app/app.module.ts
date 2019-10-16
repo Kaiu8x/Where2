@@ -20,6 +20,7 @@ import { CalendarComponent } from './components/home/calendar/calendar.component
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DemoMaterialModule } from '../material-modules';
+import { GraphsComponent } from './components/graphs/graphs.component';
 
 const appRoutes: Routes =  [
     {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -45,7 +46,8 @@ const appRoutes: Routes =  [
     CardComponent,
     CalendarComponent,
     SignInComponent,
-    RegisterComponent
+    RegisterComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
