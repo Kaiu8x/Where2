@@ -13,6 +13,7 @@ import { GeneralInfoComponent } from './components/top-nav-bar/user-settings/gen
 import { NotificationsComponent } from './components/top-nav-bar/notifications/notifications.component';
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes =  [
     {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -34,7 +35,8 @@ const appRoutes: Routes =  [
     HomeComponent
     GeneralInfoComponent,
     NotificationsComponent
-    BottomNavbarComponent
+    BottomNavbarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
