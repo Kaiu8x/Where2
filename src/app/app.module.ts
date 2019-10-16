@@ -24,7 +24,9 @@ const appRoutes: Routes =  [
     {path: 'events/:id', component: EventDetailComponent},
     {path: 'events/', component: EventsPageComponent},
     {path: 'home', component: HomeComponent},
-    {path: '*', component: PageNotFoundComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'register', component: Registercomponent},
+    {path: '**', component: PageNotFoundComponent},
 ]
 @NgModule({
   declarations: [
