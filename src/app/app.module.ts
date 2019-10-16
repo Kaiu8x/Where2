@@ -12,6 +12,7 @@ import { GeneralInfoComponent } from './components/top-nav-bar/user-settings/gen
 import { NotificationsComponent } from './components/top-nav-bar/notifications/notifications.component';
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { CardComponent } from './components/home/card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { HomeComponent } from './components/home/home.component';
     HomeComponent
     GeneralInfoComponent,
     NotificationsComponent
-    BottomNavbarComponent
+    BottomNavbarComponent,
+    CardComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
