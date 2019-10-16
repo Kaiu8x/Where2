@@ -17,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CardComponent } from './components/home/card/card.component';
 import { CalendarComponent } from './components/home/calendar/calendar.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { RegisterComponent } from './components/register/register.component';
 
 const appRoutes: Routes =  [
     {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -40,7 +42,9 @@ const appRoutes: Routes =  [
     BottomNavbarComponent,
     PageNotFoundComponent,
     CardComponent,
-    CalendarComponent
+    CalendarComponent,
+    SignInComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
