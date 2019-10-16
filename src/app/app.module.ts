@@ -13,6 +13,7 @@ import { NotificationsComponent } from './components/top-nav-bar/notifications/n
 import { BottomNavbarComponent } from './components/bottom-navbar/bottom-navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { CardComponent } from './components/home/card/card.component';
+import { CalendarComponent } from './components/home/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CardComponent } from './components/home/card/card.component';
     NotificationsComponent
     BottomNavbarComponent,
     CardComponent,
-    AddEventComponent
+    AddEventComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
