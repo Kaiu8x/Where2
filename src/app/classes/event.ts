@@ -3,9 +3,9 @@ export class Event {
     title: string;
     description: string;
     location: [number, number];
-    owner_id: number;
-    invited_id: number[];
+    ownerId: number;
+    invitedId: number[];
     thread: Message[];
-    constructor(){
+    constructor() {
     }
 }
