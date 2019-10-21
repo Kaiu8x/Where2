@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,7 @@ import { CalendarComponent } from './components/home/calendar/calendar.component
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DemoMaterialModule } from '../material-modules';
+import { GraphsComponent } from './components/graphs/graphs.component';
 
 const appRoutes: Routes =  [
     {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -27,7 +30,9 @@ const appRoutes: Routes =  [
     {path: 'events/:id', component: EventDetailComponent},
     {path: 'events/', component: EventsPageComponent},
     {path: 'home', component: HomeComponent},
-    {path: '*', component: PageNotFoundComponent},
+    {path: 'login', component: PageNotFoundComponent},
+    {path: 'register', component: PageNotFoundComponent},
+    {path: '**', component: PageNotFoundComponent},
 ]
 @NgModule({
   declarations: [
@@ -45,10 +50,13 @@ const appRoutes: Routes =  [
     CardComponent,
     CalendarComponent,
     SignInComponent,
-    RegisterComponent
+    RegisterComponent,
+    GraphsComponent
   ],
   imports: [
     BrowserModule,
+    MatMenuModule,
+    MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DemoMaterialModule,

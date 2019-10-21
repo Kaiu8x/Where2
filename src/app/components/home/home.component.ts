@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+
+
+@NgModule({
+   
+})
 
 @Component({
   selector: 'app-home',
