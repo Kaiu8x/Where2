@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {MatMenuModule} from '@angular/material';
-import {MatIconModule} from '@angular/material/icon'; 
+import { MatMenuModule } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

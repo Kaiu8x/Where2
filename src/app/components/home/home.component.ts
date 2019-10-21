@@ -1,10 +1,8 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import {CarouselModule} from "angular2-carousel";
+
 
 @NgModule({
-    imports: [
-       CarouselModule
-    ] 
+   
 })
 
 @Component({
