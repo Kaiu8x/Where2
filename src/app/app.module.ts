@@ -21,6 +21,7 @@ import {SignInComponent} from './components/sign-in/sign-in.component';
 import {RegisterComponent} from './components/register/register.component';
 import {GraphsComponent} from './components/graphs/graphs.component';
 import {IonicModule} from '@ionic/angular';
+import {AgmCoreModule} from '@agm/core';
 
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
     CalendarComponent,
     SignInComponent,
     RegisterComponent,
-    GraphsComponent
+    GraphsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +61,10 @@ const appRoutes: Routes = [
       {enableTracing: true}
     ),
     IonicModule.forRoot(),
+    AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
+      }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
