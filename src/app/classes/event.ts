@@ -6,6 +6,7 @@ export class Event {
     ownerId: number;
     invitedId: number[];
     thread: Message[];
+    image: string;
     constructor() {
     }
 }

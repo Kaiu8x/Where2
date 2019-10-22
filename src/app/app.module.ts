@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MatMenuModule } from '@angular/material';
-import { MatIconModule } from '@angular/material/icon'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +19,6 @@ import { CardComponent } from './components/home/card/card.component';
 import { CalendarComponent } from './components/home/calendar/calendar.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DemoMaterialModule } from '../material-modules';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { IonicModule } from '@ionic/angular';
 
@@ -56,11 +53,8 @@ const appRoutes: Routes =  [
   ],
   imports: [
     BrowserModule,
-    MatMenuModule,
-    MatIconModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DemoMaterialModule,
     RouterModule.forRoot(appRoutes,
                          {enableTracing: true}
                         ),
