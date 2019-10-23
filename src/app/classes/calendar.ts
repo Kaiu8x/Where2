@@ -1,5 +1,5 @@
 import {Event} from './event';
-export class Event {
+export class Calendar {
     eventList: Event[];
     constructor() {
     }
