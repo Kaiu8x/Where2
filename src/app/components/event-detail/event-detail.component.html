@@ -1,18 +1,68 @@
 <h1>
   Fiesta de Beto
 </h1>
-<ion-grid>
-  <ion-row>
-    <h1>
-      Fiesta de Beto
-    </h1>
-  </ion-row>
-  <ion-row>
-<!--    <ion-img src="../../../assets/img/tmp.jpeg"></ion-img>-->
-  </ion-row>
-  <ion-row>
-    <agm-map [latitude]="51.678418" [longitude]="7.809007">
-      <agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
-    </agm-map>
-  </ion-row>
-</ion-grid>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+
+        <h1>
+          Fiesta de Beto
+        </h1>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <!--    <ion-img src="../../../assets/img/tmp.jpeg"></ion-img>-->
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-justify-content-center"  size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
+        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
+          <agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>Descripción:</h2>
+        <p>Una Fiesta</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>Fecha</h2>
+        <p>24 de Octubre</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>Ubicación</h2>
+        <p>Ciudad de México</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2>Fecha</h2>
+        <p>24 de Octubre</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-list>
+        <ion-list-header>
+          <h2>
+            Mensajes del evento
+          </h2>
+        </ion-list-header>
+        <ion-item *ngFor="let in of counter(10); let i =index">
+          <ion-avatar>
+            <img src="" alt="">
+          </ion-avatar>
+          <ion-label>
+            <h2>Kai</h2>
+            <p>Hola, les laten unas Kawamasakis?</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
+</ion-content>
