@@ -1,10 +1,17 @@
 <div class="row">
 	<div class="col-12">
-		
-			<div class="item-carousel"><app-card></app-card></div>
-			<div class="item-carousel"><app-card></app-card></div>
-			<div class="item-carousel"><app-card></app-card></div>
-		
+		<ion-slides pager="true" [options]="slideOpts">
+	      <ion-slide>
+	        <div class="item-carousel"><app-card></app-card></div>
+	      	<div class="item-carousel"><app-card></app-card></div>
+	      	<div class="item-carousel"><app-card></app-card></div>
+	      </ion-slide>
+	      <ion-slide>
+	        <div class="item-carousel"><app-card></app-card></div>
+	        <div class="item-carousel"><app-card></app-card></div>
+	        <div class="item-carousel"><app-card></app-card></div>
+	      </ion-slide>
+	    </ion-slides>
 	</div>
 	<div class="col-12">
 		<app-calendar></app-calendar>
