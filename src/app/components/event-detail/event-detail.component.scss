@@ -1,4 +1,7 @@
+#map-holder {
+  display: flex;
+}
 agm-map {
-  height: 80px;
-  width: 80px;
+  width: 100vh;
+  height: 66vh;
 }

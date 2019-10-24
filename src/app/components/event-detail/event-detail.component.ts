@@ -12,4 +12,8 @@ export class EventDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  counter(i: number) {
+    return new Array(i);
+  }
+
 }

@@ -1,22 +1,43 @@
-<div class="row">
-	<div class="col-12">
-		<ion-slides pager="true" [options]="slideOpts">
-	      <ion-slide>
-	        <div class="item-carousel"><app-card></app-card></div>
-	      	<div class="item-carousel"><app-card></app-card></div>
-	      	<div class="item-carousel"><app-card></app-card></div>
-	      </ion-slide>
-	      <ion-slide>
-	        <div class="item-carousel"><app-card></app-card></div>
-	        <div class="item-carousel"><app-card></app-card></div>
-	        <div class="item-carousel"><app-card></app-card></div>
-	      </ion-slide>
-	    </ion-slides>
-	</div>
-	<div class="col-12">
-		<app-calendar></app-calendar>
-	</div>
-	<div class="col-12">
-		<app-graphs></app-graphs>
-	</div>
-</div>
+<ion-content>
+	<ion-fab>
+		<ion-fab-button color="primary" href="#">+</ion-fab-button>
+	</ion-fab>
+	<ion-row class="ion-justify-content-center">
+		<ion-col size = "1">
+		</ion-col>
+		<ion-col size = "10">
+			<ion-slides pager="true" [options]="{ initialSlide: 1, speed: 400}" class="carrousel">
+				<ion-slide>
+					<div class="item-carousel"><app-card></app-card></div>
+					<div class="item-carousel"><app-card></app-card></div>
+					<div class="item-carousel"><app-card></app-card></div>
+				</ion-slide>
+				<ion-slide>
+					<div class="item-carousel"><app-card></app-card></div>
+					<div class="item-carousel"><app-card></app-card></div>
+					<div class="item-carousel"><app-card></app-card></div>
+				</ion-slide>
+			</ion-slides>
+		</ion-col>
+		<ion-col size = "1">
+		</ion-col>
+	</ion-row>
+
+	<ion-grid>
+		<ion-row class="ion-justify-content-center">
+			<ion-col size = "12">
+				<div>
+					<app-calendar></app-calendar>
+				</div>
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="ion-justify-content-center">
+			<ion-col size = "12">
+				<div>
+					<app-graphs></app-graphs>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
