@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
+
+import { Event } from "../classes/event";
+import { EVENTS } from "../mock-events";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class EventsService {
+  constructor() {}
 
-  constructor() { }
+  getEvents(): Event[] {
+    console.log("EVENTS:");
+    console.log(EVENTS);
+    return EVENTS;
+  }
 }

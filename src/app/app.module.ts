@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
   {path: 'users/:id', component: GeneralInfoComponent},
   {path: 'events/:id', component: EventDetailComponent},
-  {path: 'events/', component: EventsPageComponent},
+  {path: 'events', component: EventsPageComponent},
   {path: 'home', component: HomeComponent},
   {path: 'login', component: PageNotFoundComponent},
   {path: 'register', component: PageNotFoundComponent},
