@@ -1,8 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 
-@NgModule({
-   
-})
 
 @Component({
   selector: 'app-home',

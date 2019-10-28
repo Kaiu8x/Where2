@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import * as CanvasJS from "../../canvasjs.min";
+import * as CanvasJS from '../../canvasjs.min.js';
 
 @Component({
   selector: "app-graphs",
