@@ -1,9 +1,6 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-@NgModule({
-   
-})
 
 @Component({
   selector: 'app-home',

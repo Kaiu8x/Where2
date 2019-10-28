@@ -1,17 +1,38 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from '@angular/core';
+import {InMemoryDbService} from 'angular-in-memory-web-api';
 
-import { Event } from "../classes/event";
-import { EVENTS } from "../mock-events";
+import {Event} from '../classes/event';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class EventsService {
-  constructor() {}
+  SERVER_URL = 'api/events';
 
-  getEvents(): Event[] {
-    console.log("EVENTS:");
-    console.log(EVENTS);
-    return EVENTS;
+  constructor(private httpClient: HttpClient) {
   }
+
+  public getAllEvents(): Observable<Event[]> {
+    return this.httpClient.get<Event[]>(this.SERVER_URL);
+  }
+
+  public getEventById(id: number): Observable<Event> {
+    const url = `${this.SERVER_URL}/${id}`;
+    return this.httpClient.get<Event>(url);
+  }
+
+  public addEvent(e: Event) {
+    return this.httpClient.post(this.SERVER_URL + 'events', e);
+  }
+
+  public updateEvent(e: Event) {
+    return this.httpClient.put(this.SERVER_URL + 'events' + '/' + e.id, e);
+  }
+
+  public deleteEvent(e: Event) {
+    return this.httpClient.delete(this.SERVER_URL + 'events' + '/' + e.id);
+  }
+
 }
