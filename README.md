@@ -1,4 +1,4 @@
-# Si no jala checar el branch functioning.
+# **Si no jala master usar branch functioning!!!!!**
 
 # Where2
 
