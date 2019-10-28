@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient} from '@angular/common/http';
+import {HttpBackend, HttpClient} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule, InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {DataService} from "./services/data.service";
 import {HttpClientModule} from "@angular/common/http";
@@ -44,6 +44,16 @@ const appRoutes: Routes = [
   {path: '**', component: PageNotFoundComponent},
 ]
 
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+
+export function translateHttpLoaderFactory(httpBackend: HttpBackend): TranslateHttpLoader {
+  return new TranslateHttpLoader(new HttpClient(httpBackend));
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,11 +83,9 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     TranslateModule.forRoot({
-      loader:{
+      loader: {
         provide: TranslateLoader,
-        useFactory: (http: HttpClient) => {
-          return new TranslateHttpLoader(http);
-        },
+        useFactory: translateHttpLoaderFactory,
         deps: [HttpClient]
       }
     }),
@@ -92,4 +100,5 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
