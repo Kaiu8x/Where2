@@ -19,6 +19,7 @@ export class EventsService {
   }
 
   public getEventById(id: number): Observable<Event> {
+    console.log("getting "+id);
     const url = `${this.SERVER_URL}/${id}`;
     return this.httpClient.get<Event>(url);
   }

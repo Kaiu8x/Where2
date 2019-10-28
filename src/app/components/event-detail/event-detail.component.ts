@@ -14,31 +14,27 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   id: number;
   private sub: any;
 
-
   constructor(private eventsService: EventsService, private route: ActivatedRoute) {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    // this.sub.unsubscribe();
   }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.id = +params.id; // (+) converts string 'id' to a number
-
-      // In a real app: dispatch action to load the details here.
+    this.route.params.subscribe(params => {
+      const id = +params.id; // (+) converts string 'id' to a number
+      this.getEvent(id);
     });
-    console.log('Getting event: ' + this.id);
-    this.getEvent();
   }
 
   counter(i: number) {
     return new Array(i);
   }
 
-  getEvent() {
-    this.eventsService.getEventById(this.id).subscribe(((data: any) => {
-      console.log('This are the events:');
+  getEvent(id: number) {
+    this.eventsService.getEventById(id).subscribe(((data: any) => {
+      console.log('This are the event:');
       this.event = data;
     }));
   }

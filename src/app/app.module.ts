@@ -27,14 +27,14 @@ import {DataService} from "./services/data.service";
 import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
-  {path: 'users/:id/settings', component: UserSettingsComponent},
-  {path: 'users/:id', component: GeneralInfoComponent},
-  {path: 'events/:id', component: EventDetailComponent},
-  {path: 'events', component: EventsPageComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'login', component: PageNotFoundComponent},
-  {path: 'register', component: PageNotFoundComponent},
-  {path: '**', component: PageNotFoundComponent},
+  {path: 'users/:id/settings', component: UserSettingsComponent, pathMatch: 'full'},
+  {path: 'users/:id', component: GeneralInfoComponent, pathMatch: 'full'},
+  {path: 'events', component: EventsPageComponent, pathMatch: 'full'},
+  {path: 'events/:id', component: EventDetailComponent, pathMatch: 'full'},
+  {path: 'home', component: HomeComponent, pathMatch: 'full'},
+  {path: 'login', component: PageNotFoundComponent, pathMatch: 'full'},
+  {path: 'register', component: PageNotFoundComponent, pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent, pathMatch: 'full'},
 ]
 
 @NgModule({

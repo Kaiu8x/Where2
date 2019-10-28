@@ -21,6 +21,7 @@ export class EventsPageComponent implements OnInit {
   getEvents(): void {
     this.eventsService.getAllEvents().subscribe(((data: any[]) => {
       console.log('This are the events:');
+      console.log(data);
       this.events = data;
     }));
   }
