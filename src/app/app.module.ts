@@ -22,9 +22,13 @@ import {RegisterComponent} from './components/register/register.component';
 import {GraphsComponent} from './components/graphs/graphs.component';
 import {IonicModule} from '@ionic/angular';
 import {AgmCoreModule} from '@agm/core';
+import {DiscoverComponent} from './components/discover/discover.component';
+import {ProfileComponent} from './components/profile/profile.component';
 import {HttpClientInMemoryWebApiModule, InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {DataService} from "./services/data.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent, pathMatch: 'full'},
@@ -55,10 +59,22 @@ const appRoutes: Routes = [
     SignInComponent,
     RegisterComponent,
     GraphsComponent,
+    DiscoverComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (http: HttpClient) => {
+          return new TranslateHttpLoader(http);
+        },
+        deps: [HttpClient]
+      }
+    }),
     IonicModule.forRoot(),
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(DataService, {dataEncapsulation: false}),
@@ -66,7 +82,6 @@ const appRoutes: Routes = [
         apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
       }
     ),
-    AppRoutingModule,
     RouterModule.forRoot(appRoutes,
       {enableTracing: true}
     ),

@@ -1,27 +1,22 @@
 # Where2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
+Team members:
+- Kai Kawasaki Ueda A01336424
+- Sergio Ugalde Marcano A01336435
+- Santiago Gutiérrez Bárcenas A01652520
 
-## Development server
+## Internacionalización
+Se utilizó con botones en el top nav bar y solo para cambiar el texto del bottom nav bar dado que el texto que se encuentra es por el momento dummy y son cosas que se jalaran de la base.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Investigación
+Se utilizó la animación en las cartas que se muestran en home usando un fade in effect cambiando la opacidad de los componentes. \n Se utilizaron las gráficas en home jalando la info de un dummy por el momento pero esta gráfica menciona la actividad del usuario por semana.
 
-## Code scaffolding
+## Router
+Se incorporó Router el cual se puede navegar usando el nav bar de abajo, se utilizó la convención para ver los eventos de mandar el event id en la url para ver ese event detail.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Angular-in-memory-web-api
+Se utiliza en la parte de event details para jalar la información. Se extenderá a los otros componentes.
 
-## Build
+## Correciones
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Se incorpora las estadísticas y un hitorial de los evenots en My Events. Al igual que se incorporan las sugerencias dichas como la descripción y información de cada evento en las cartas.

@@ -1,4 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -7,10 +8,21 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  public lenguaje = 'en';
+    
+  constructor( private translate: TranslateService ) {
+    this.translate.setDefaultLang(this.lenguaje);
+  }
 
-  constructor() { }
+  
 
   ngOnInit() {
+
+  }
+
+  public cambiarLenguaje(lang){
+    this.lenguaje = lang;
+    this.translate.use(lang);
   }
 
 }
