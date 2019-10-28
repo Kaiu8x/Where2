@@ -22,6 +22,9 @@ import {RegisterComponent} from './components/register/register.component';
 import {GraphsComponent} from './components/graphs/graphs.component';
 import {IonicModule} from '@ionic/angular';
 import {AgmCoreModule} from '@agm/core';
+import {HttpClientInMemoryWebApiModule, InMemoryWebApiModule} from 'angular-in-memory-web-api';
+import {DataService} from "./services/data.service";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -55,16 +58,18 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes,
-      {enableTracing: true}
-    ),
     IonicModule.forRoot(),
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService, {dataEncapsulation: false}),
     AgmCoreModule.forRoot({
         apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
       }
-    )
+    ),
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes,
+      {enableTracing: true}
+    ),
   ],
   providers: [],
   bootstrap: [AppComponent]

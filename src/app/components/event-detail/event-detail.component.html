@@ -42,8 +42,22 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <h2>Fecha</h2>
-        <p>24 de Octubre</p>
+        <ion-list>
+          <ion-list-header>
+            <h2>
+              Mensajes del evento
+            </h2>
+          </ion-list-header>
+          <ion-item *ngFor="let in of counter(10); let i =index">
+            <ion-avatar>
+              <img src="" alt="">
+            </ion-avatar>
+            <ion-label>
+              <h2>Kai</h2>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
       </ion-col>
     </ion-row>
     <ion-row>
