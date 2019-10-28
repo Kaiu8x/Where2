@@ -1,0 +1,13 @@
+{
+    "language":{
+        "english": "English",
+        "spanish": "Spanish"
+    },
+
+    "botton-navbar":{
+        "events": "My Events",
+        "home" : "Home",
+        "discover": "Discover",
+        "profile" : "Profile"
+    }
+}

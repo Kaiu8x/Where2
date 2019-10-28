@@ -1,0 +1,13 @@
+<p>discover works!</p>
+<ion-content>
+	<ion-searchbar placeholder="Search" animated></ion-searchbar>
+ 	<ion-grid>
+    	<ion-row>
+      	<ion-col class="ion-justify-content-center"  size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
+        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
+          	<agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
+        	</agm-map>
+      	</ion-col>
+    	</ion-row>
+  	</ion-grid>
+</ion-content>
