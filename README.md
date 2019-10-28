@@ -5,6 +5,8 @@ Team members:
 - Sergio Ugalde Marcano A01336435
 - Santiago Gutiérrez Bárcenas A01652520
 
+# Si no jala checar el branch functioning.
+
 ## Internacionalización
 Se utilizó con botones en el top nav bar y solo para cambiar el texto del bottom nav bar dado que el texto que se encuentra es por el momento dummy y son cosas que se jalaran de la base.
 
