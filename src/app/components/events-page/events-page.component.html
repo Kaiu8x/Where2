@@ -1,13 +1,17 @@
 <ion-content>
-    <ion-list-header>Today</ion-list-header>
-    <ion-item *ngFor="let event of events">
-        <ion-thumbnail slot="start">
-            <img src="{{event.image}}">
-        </ion-thumbnail>
-        <ion-label>
-            <h3>{{event.title}}</h3>
-            <p>{{event.date | date:'yyyy-MM-dd'}}</p>
-        </ion-label>
-    </ion-item>
+  <ion-list-header>Today</ion-list-header>
+  <ion-item *ngFor="let event of events">
+
+    <ion-thumbnail slot="start">
+      <img src="{{event.image}}">
+    </ion-thumbnail>
+    <ion-label>
+      <h3>{{event.title}}</h3>
+      <p>{{event.date | date:'yyyy-MM-dd'}}</p>
+      <a routerLink="/events/{{event.id}}">
+        Detail View
+      </a>
+    </ion-label>
+  </ion-item>
 
 </ion-content>
