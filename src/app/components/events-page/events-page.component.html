@@ -6,7 +6,7 @@
         </ion-thumbnail>
         <ion-label>
             <h3>{{event.title}}</h3>
-            <p>{{event.date.toLocaleDateString()}}</p>
+            <p>{{event.date | date:'yyyy-MM-dd'}}</p>
         </ion-label>
     </ion-item>
 
