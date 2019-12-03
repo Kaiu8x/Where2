@@ -1,6 +1,6 @@
-import { Message } from "./message";
+import { Message } from './message';
 export class Event {
-  eventId: number;
+  id: number;
   title: string;
   description: string;
   location: [number, number];

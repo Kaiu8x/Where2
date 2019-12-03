@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "photoUrl": "https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg",
+      "firstName": "Pedro",
+      "lastName": "Vázquez",
+      "email": "pedro@gmail.com",
+      "password": "password",
+      "phone": "557552905",
+      "friends": [
+        "1"
+      ],
+      "userPreferences": {
+        "language": "en"
+      }
+    },
+    {
+      "id": 1,
+      "photoUrl": "https://www.niemanlab.org/images/Greg-Emerson-edit-2.jpg",
+      "firstName": "Juad",
+      "lastName": "Pérez",
+      "email": "juan@gmail.com",
+      "password": "password",
+      "phone": "557552905",
+      "friends": [
+        "0"
+      ],
+      "userPreferences": {
+        "language": "es"
+      }
+    }
+  ],
+  "events": [
+    {
+      "id": 0,
+      "name": "Fiesta de Beto",
+      "description": "Integración de ITC",
+      "direction": {
+        "text": "Calle del perro 1234",
+        "location": [
+          "10",
+          "10"
+        ]
+      },
+      "date": "2012/12/12",
+      "category": "1",
+      "messages": [
+        {
+          "user_id": "1",
+          "text": "Hola"
+        },
+        {
+          "user_id": "2",
+          "text": "Adios"
+        }
+      ],
+      "invited": [
+        "1",
+        "2",
+        "3"
+      ],
+      "owner": "1",
+      "photoUrls": [
+        "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "https://images.pexels.com/photos/1449795/pexels-photo-1449795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      ],
+      "status": "activity"
+    },
+    {
+      "id": 1,
+      "name": "Fiesta de Kai",
+      "description": "Integración de LADs",
+      "direction": {
+        "text": "Calle del perro 4321",
+        "location": [
+          "19",
+          "19"
+        ]
+      },
+      "date": "2012/12/12",
+      "category": "1",
+      "messages": [
+        {
+          "user_id": "1",
+          "text": "Hola"
+        },
+        {
+          "user_id": "2",
+          "text": "Adios"
+        }
+      ],
+      "invited": [
+        "1",
+        "2",
+        "3"
+      ],
+      "owner": "1",
+      "photoUrls": [
+        "https://images.pexels.com/photos/1449795/pexels-photo-1449795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+      ]
+    }
+  ],
+  "categories": [
+    "party",
+    "meetup",
+    "work & lunch",
+    "dinner",
+    "brunch",
+    "other"
+  ]
+}
