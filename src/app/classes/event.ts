@@ -1,5 +1,6 @@
 import { Message } from './message';
 import { Location } from './Location';
+import {invite_status} from "./invite_status";
 // tslint:disable:variable-name
 export class Event {
   public id: number;
@@ -9,7 +10,7 @@ export class Event {
   public date: string;
   public category: number;
   public owner_id: number;
-  public invited: number[];
+  public invited: invite_status[];
   public messages: Message[];
   public photoUrls: string[];
   public constructor() {}
