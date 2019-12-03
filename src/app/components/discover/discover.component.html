@@ -3,11 +3,32 @@
 	<ion-searchbar placeholder="Search" animated></ion-searchbar>
  	<ion-grid>
     	<ion-row>
-      	<ion-col class="ion-justify-content-center"  size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
-        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
-          	<agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
-        	</agm-map>
-      	</ion-col>
+    		<ion-col class="ion-justify-content-center"  size-xs="12" size-sm="8" size-lg="4" size-md="4" >
+    			<form (ngSubmit)="logForm()">
+			      <ion-item>
+			        <ion-label>Mood de:</ion-label>
+			        <ion-input type="text" name="title"></ion-input>
+			      </ion-item>
+			      <ion-item>
+			        <ion-label>Gasto max de:</ion-label>
+			        <ion-textarea name="description"></ion-textarea>
+			      </ion-item>
+			      <ion-item>
+			        <ion-label>Participantes:</ion-label>
+			        <ion-textarea name="description"></ion-textarea>
+			      </ion-item>
+			      <ion-item>
+			        <ion-label>Cerca de:</ion-label>
+			        <ion-textarea name="description"></ion-textarea>
+			      </ion-item>
+			      <button ion-button type="submit" block>Buscar</button>
+			    </form>
+    		</ion-col>
+	      	<ion-col class="ion-justify-content-center"  size-xs="12" size-sm="8" size-lg="8" size-md="8" id="map-holder">
+	        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
+	          	<agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
+	        	</agm-map>
+	      	</ion-col>
     	</ion-row>
   	</ion-grid>
 </ion-content>
