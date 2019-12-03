@@ -29,6 +29,7 @@ import {DiscoverComponent} from './components/discover/discover.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {FilterOnIdPipe} from "./components/event-detail/Aux";
 
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
     DiscoverComponent,
     ProfileComponent,
     EventFormComponent,
+    FilterOnIdPipe,
   ],
   imports: [
     BrowserModule,
