@@ -10,7 +10,7 @@ import {timeout} from "rxjs/operators";
   providedIn: 'root'
 })
 export class EventsService {
-  endpoint = '[localhost:8000]';
+  endpoint = 'http://localhost:3000';
 
   constructor(
     private http: HttpClient
