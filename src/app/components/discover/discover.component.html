@@ -1,13 +1,33 @@
 <p>discover works!</p>
 <ion-content>
-	<ion-searchbar placeholder="Search" animated></ion-searchbar>
- 	<ion-grid>
-    	<ion-row>
-      	<ion-col class="ion-justify-content-center"  size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
-        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
-          	<agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
-        	</agm-map>
-      	</ion-col>
-    	</ion-row>
-  	</ion-grid>
+  <!-- <input
+    ngx-google-places-autocomplete
+    [options]="options"
+    #placesRef="ngx-places"
+    (onAddressChange)="handleAddressChange($event)"
+    style="width: 95%; padding: 20px; margin: 20px;"
+  /> -->
+  <!-- <p>{{ formattedAddress }}</p> -->
+  <input placeholder="Search" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+    #search [formControl]="searchControl" style="width: 95%; padding: 20px; margin: 20px;" />
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
+        <div id="map" #map style="width:100%;height:400px"></div>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" class="ion-text-center">
+          <div id="map" #map style="width:100%;height:400px">
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(infowindow)"
+              [latitude]="m.lat" [longitude]="m.lng" [animation]="m.animation" (mouseOver)="markerOver(m)"
+              (mouseOut)="markerOut(m)">
+              <agm-info-window #infowindow>
+                <strong>{{m.label}}</strong>
+              </agm-info-window>
+            </agm-marker>
+            <agm-circle [latitude]="latitude" [longitude]="longitude" [radius]="2500" [fillColor]="'blue'">
+            </agm-circle>
+          </div>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
