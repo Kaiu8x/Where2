@@ -35,9 +35,9 @@ export class EventsService {
   }
 
   // Get
-  getEvent(id, loadingError: Subject<boolean>): Observable<Event[]> {
+  getEvent(id, loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events/${id}`;
-    return this.http.get<Event[]>(url).pipe(
+    return this.http.get(url).pipe(
     timeout(5000),
       catchError(() => {
         loadingError.next(true);
