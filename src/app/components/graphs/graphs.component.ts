@@ -19,10 +19,10 @@ export class GraphsComponent implements OnInit {
         {
           type: "column",
           dataPoints: [
-            { y: 71, label: "Week 1" },
-            { y: 55, label: "Week 2" },
-            { y: 50, label: "Week 3" },
-            { y: 65, label: "Week 4" }
+            { y: 71, label: "Jan" },
+            { y: 55, label: "Feb" },
+            { y: 50, label: "Mar" },
+            { y: 65, label: "Apr" }
           ]
         }
       ]
