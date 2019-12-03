@@ -3,7 +3,7 @@ import {Component, OnInit} from "@angular/core";
 import {Event} from "../../classes/event";
 import {EventsService} from "../../services/events.service";
 import {Observable} from "rxjs";
-import { Subject } from 'rxjs';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: "app-events-page",

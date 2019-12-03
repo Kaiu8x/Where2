@@ -29,6 +29,12 @@ export class EventsService {
     );
   }
   // Get
+  getCategories(): Observable<string[]> {
+    const url = `${this.endpoint}/categories`;
+    return this.http.get(url);
+  }
+
+  // Get
   getEvent(event: Event): Observable<Event[]> {
     const url = `${this.endpoint}/events/${event.id}`;
     return this.http.get<Event[]>(url).pipe(
@@ -41,7 +47,10 @@ export class EventsService {
     const url = `${this.endpoint}/events`;
     event.id = null;
     return this.http.post<Event>(url, event).pipe(
-      timeout(5000)
+      timeout(5000),
+      catchError((err) => {
+        return throwError(err);
+      })
     );
   }
 

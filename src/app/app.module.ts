@@ -27,6 +27,8 @@ import {IonicModule} from '@ionic/angular';
 import {AgmCoreModule} from '@agm/core';
 import {DiscoverComponent} from './components/discover/discover.component';
 import {ProfileComponent} from './components/profile/profile.component';
+import { EventFormComponent } from './components/event-form/event-form.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
@@ -61,6 +63,7 @@ const appRoutes: Routes = [
     GraphsComponent,
     DiscoverComponent,
     ProfileComponent,
+    EventFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     TranslateModule.forRoot({
-      loader:{
+      loader: {
         provide: TranslateLoader,
         useFactory: (http: HttpClient) => {
           return new TranslateHttpLoader(http);
@@ -83,7 +86,8 @@ const appRoutes: Routes = [
     AgmCoreModule.forRoot({
         apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
       }
-    )
+    ),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

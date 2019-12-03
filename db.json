@@ -121,6 +121,8 @@
     "other"
   ],
   "invited_status":[
-    ""
+    "Invited",
+    "Accepted",
+    "Rejected"
   ]
 }
