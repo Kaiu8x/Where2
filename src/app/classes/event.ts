@@ -3,7 +3,7 @@ import { Location } from './Location';
 import {invite_status} from "./invite_status";
 // tslint:disable:variable-name
 export class Event {
-  public id: number;
+  public id: string;
   public name: string;
   public description: string;
   public direction: Location;
