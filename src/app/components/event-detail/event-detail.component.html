@@ -1,14 +1,15 @@
-<h1>
-  Fiesta de Beto
-</h1>
-<ion-content>
-  <ion-grid>
+<ion-content *ngIf="true" style="offset-top: -20px !important;">
+  <ion-grid style="margin-top: 30px;">
     <ion-row>
       <ion-col>
-
         <h1>
-          Fiesta de Beto
+          {{event.name}}
         </h1>
+        <h2 *ngFor="let category of categories | async;let i = index">
+          <div *ngIf="i === event.category">
+            {{category}}
+          </div>
+        </h2>
 
       </ion-col>
     </ion-row>
@@ -16,53 +17,95 @@
       <!--    <ion-img src="../../../assets/img/tmp.jpeg"></ion-img>-->
     </ion-row>
     <ion-row>
-      <ion-col class="ion-justify-content-center"  size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
-        <agm-map [latitude]="51.678418" [longitude]="7.809007" text-center>
-          <agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
-        </agm-map>
+      <ion-col class="ion-justify-content-center" size-xs="10" size-sm="10" size-lg="10" size-md="10">
+        <ion-row>
+          <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="4" size-md="4">
+            <ion-img
+              src="https://img.chilango.com/2019/01/47054797_704078543319032_4714674225216205474_n.jpg"></ion-img>
+          </ion-col>
+          <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="8" size-md="8"
+                   id="map-holder">
+            <agm-map [latitude]="19.4177876" [longitude]="-99.1673724" text-center>
+              <agm-marker [latitude]="19.4177876" [longitude]="-99.1673724"></agm-marker>
+            </agm-map>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h2>Descripción:</h2>
+            <p>{{event.description}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h2>Fecha</h2>
+            <p>{{event.date}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h2>Ubicación</h2>
+            <p>{{event.direction.text}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <h2>Invitados</h2>
+            <ul>
+              <li *ngFor="let user of event.invited_status">
+                {{user.user_id}}
+                {{user.status}}
+              </li>
+            </ul>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-list>
+            <ion-list-header>
+              <h2>
+                Mensajes del evento
+              </h2>
+            </ion-list-header>
+            <ion-item>
+              <ion-avatar>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSBYEDwhLv5nxNBvgli-sfvdlI5GBi2egs74jEaucPw8AYzyrf&s"
+                  alt="">
+              </ion-avatar>
+              <ion-label>
+                <h2>Ingrid</h2>
+                <p>Me gusto mucho este cafe cuando y a que hora vamos</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar>
+                <img src="https://miro.medium.com/fit/c/256/256/0*SrT91H8AGskb1eT5." alt="">
+              </ion-avatar>
+              <ion-label>
+                <h2>Kai</h2>
+                <p>Yo tengo libre el viernes a las 12</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-avatar>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2GbSmgPSsJZtYLcF1xjErWJYEshgUUJd7F89pDn9hoTkfQNgTMQ&s"
+                  alt="">
+              </ion-avatar>
+              <ion-label>
+                <h2>Paulina</h2>
+                <p>Yo tambien tengo libre el viernes a la 1 de la tarde podemos ir</p>
+              </ion-label>
+            </ion-item>
+            <ion-item>
+              <form [formGroup]="messageForm" (ngSubmit)="submitMessage(messageForm.value)">
+                <ion-input type="text" name="message" id="message" placeholder="Escribe tu mensaje"></ion-input>
+                <ion-button type="submit">Enviar</ion-button>
+              </form>
+            </ion-item>
+          </ion-list>
+        </ion-row>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h2>Descripción:</h2>
-        <p>Una Fiesta</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h2>Fecha</h2>
-        <p>24 de Octubre</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h2>Ubicación</h2>
-        <p>Ciudad de México</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <h2>Fecha</h2>
-        <p>24 de Octubre</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-list>
-        <ion-list-header>
-          <h2>
-            Mensajes del evento
-          </h2>
-        </ion-list-header>
-        <ion-item *ngFor="let in of counter(10); let i =index">
-          <ion-avatar>
-            <img src="" alt="">
-          </ion-avatar>
-          <ion-label>
-            <h2>Kai</h2>
-            <p>Hola, les laten unas Kawamasakis?</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
     </ion-row>
   </ion-grid>
 </ion-content>
