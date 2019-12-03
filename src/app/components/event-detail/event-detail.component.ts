@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {EventsService} from "../../services/events.service";
+import {Subject} from "rxjs";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-event-detail',
@@ -6,14 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
+  event;
+  loadingError = new Subject<boolean>();
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private eventsService: EventsService,
+              private router: Router,
+              private  route: ActivatedRoute) {
   }
 
-  counter(i: number) {
-    return new Array(i);
+  ngOnInit() {
+    this.getEvent();
+  }
+
+  getEvent() {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.event = this.eventsService.getEvent(id, this.loadingError);
+    console.log(this.event);
+  }
+
+  getUser(){
+
   }
 
 }
