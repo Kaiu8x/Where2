@@ -1,11 +1,9 @@
 import {Injectable} from '@angular/core';
 
 import {Event} from '../classes/event';
-import {EVENTS} from '../mock-events';
 import {Observable, of, Subject, throwError} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {catchError, timeout} from "rxjs/operators";
-import {MyError} from "../classes/error";
+import {catchError, timeout} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +16,7 @@ export class EventsService {
   ) {}
 
   // Get
-  getEvents(loadingError: Subject<boolean>): Observable<Event[]> {
+  getEvents(loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events`;
     return this.http.get(url).pipe(
       timeout(5000),
@@ -31,7 +29,7 @@ export class EventsService {
   // Get
   getCategories(): Observable<string[]> {
     const url = `${this.endpoint}/categories`;
-    return this.http.get(url);
+    return this.http.get<string[]>(url);
   }
 
   // Get
