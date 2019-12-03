@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {EventsService} from "../../services/events.service";
 import {Subject} from "rxjs";
 import {Router, ActivatedRoute} from "@angular/router";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-event-detail',
@@ -11,8 +12,10 @@ import {Router, ActivatedRoute} from "@angular/router";
 export class EventDetailComponent implements OnInit {
   event;
   loadingError = new Subject<boolean>();
+  category;
 
   constructor(private eventsService: EventsService,
+              private userService: UserService,
               private router: Router,
               private  route: ActivatedRoute) {
   }
@@ -27,8 +30,11 @@ export class EventDetailComponent implements OnInit {
     console.log(this.event);
   }
 
-  getUser(){
+  getCategory() {
+    this.category = this.eventsService.getCategories();
+  }
 
+  getUser(id) {
   }
 
 }
