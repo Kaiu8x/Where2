@@ -55,11 +55,11 @@
           "text": "Adios"
         }
       ],
-      "invited": [
-        "1",
-        "2",
-        "3"
-      ],
+      "invited": {}
+        "1": "going",
+        "2": "pending",
+        "3": "not-going",
+      },
       "owner": "1",
       "photoUrls": [
         "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
