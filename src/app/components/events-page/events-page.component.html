@@ -1,13 +1,28 @@
 <ion-content>
+  <div *ngIf="events | async as events; else loadingOrError">
     <ion-list-header>Today</ion-list-header>
-    <ion-item *ngFor="let event of events">
+    <ion-item *ngFor="let event of events" (click)="onClick(event)">
         <ion-thumbnail slot="start">
-            <img src="{{event.image}}">
+            <img src="{{event.photoUrls[0]}}">
         </ion-thumbnail>
         <ion-label>
-            <h3>{{event.title}}</h3>
+            <h3>{{event.name}}</h3>
             <p>October 25, 2019</p>
         </ion-label>
+      <button (click)="onDelete(event)">
+        Delete
+      </button>
     </ion-item>
-    
+  </div>
+  <ng-template #loadingOrError>
+   <div *ngIf="loadingError | async; else loading">
+     Error
+   </div>
+  </ng-template>
+  <ng-template #loading>
+    <div>
+      Loading events...
+    </div>
+  </ng-template>
+
 </ion-content>

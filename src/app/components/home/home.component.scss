@@ -3,6 +3,12 @@
 }
 
 ion-fab {
-	bottom: 20px;
-	right: 30px;
+	position: fixed;
+	bottom: 4%;
+	right: 2%;
+}
+
+ion-img {
+	max-width: 100%;
+  	height: auto;
 }

@@ -1,7 +1,10 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>Where 2</ion-title>
-    <ion-button (click)="cambiarLenguaje('en')" [ngClass]="{'btn btn-outline-dark':language == 'en'}" slot="end">{{'language.english' | translate}}</ion-button>
+  	<ion-buttons slot="start">
+    	<ion-img src="../../../assets/img/logos/300px/Logo Black.png" id="logo"> </ion-img>
+ 	</ion-buttons>
+  	<ion-title>Where 2</ion-title>
+  	<ion-button (click)="cambiarLenguaje('en')" [ngClass]="{'btn btn-outline-dark':language == 'en'}" slot="end">{{'language.english' | translate}}</ion-button>
 	<ion-button (click)="cambiarLenguaje('es')" [ngClass]="{'btn btn-outline-dark':language == 'es'}" slot="end">{{'language.spanish' | translate}}</ion-button>
   </ion-toolbar>
 </ion-header>
