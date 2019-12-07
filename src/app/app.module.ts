@@ -20,8 +20,8 @@ import {HomeComponent} from './components/home/home.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 import {CardComponent} from './components/home/card/card.component';
 import {CalendarComponent} from './components/home/calendar/calendar.component';
-// import {SignInComponent} from './components/sign-in/sign-in.component';
-// import {RegisterComponent} from './components/register/register.component';
+import {SignInComponent} from './components/sign-in/sign-in.component';
+import {RegisterComponent} from './components/register/register.component';
 import {GraphsComponent} from './components/graphs/graphs.component';
 import {IonicModule} from '@ionic/angular';
 import {AgmCoreModule} from '@agm/core';
@@ -34,7 +34,6 @@ import {FilterOnIdPipe} from "./components/event-detail/Aux";
 const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
   {path: 'users/:id', component: GeneralInfoComponent},
-  {path: 'events/create', component: EventFormComponent},
   {path: 'events/:id', component: EventDetailComponent},
   {path: 'events', component: EventsPageComponent},
   {path: 'home', component: HomeComponent},
@@ -78,7 +77,7 @@ const appRoutes: Routes = [
     ),
     HttpClientModule,
     TranslateModule.forRoot({
-      loader: {
+      loader:{
         provide: TranslateLoader,
         useFactory: (http: HttpClient) => {
           return new TranslateHttpLoader(http);
@@ -88,9 +87,12 @@ const appRoutes: Routes = [
     }),
     IonicModule.forRoot(),
     AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
-      }
-    ),
+      apiKey: "AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ",
+      libraries: ["places"]
+    }),
+    FormsModule,
+    ReactiveFormsModule,
+    GooglePlaceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
