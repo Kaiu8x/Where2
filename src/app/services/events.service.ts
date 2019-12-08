@@ -38,7 +38,7 @@ export class EventsService {
   getEvent(id, loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events/${id}`;
     return this.http.get(url).pipe(
-    timeout(5000),
+      timeout(5000),
       catchError(() => {
         loadingError.next(true);
         return of();
@@ -73,9 +73,17 @@ export class EventsService {
 
   // Update
   updateEvent(event: Event): Observable<Event> {
+    console.log("Updating", event);
     const url = `${this.endpoint}/events/${event.id}`;
     event.id = null;
     return this.http.put<Event>(url, event).pipe(
+      timeout(5000)
+    );
+  }
+
+  getInviteStatus(): Observable<string[]> {
+    const url = `${this.endpoint}/invited_status/`;
+    return this.http.get<string[]>(url).pipe(
       timeout(5000)
     );
   }

@@ -1,6 +1,7 @@
-<ion-content *ngIf="true" style="offset-top: -20px !important;">
+<ion-content *ngIf="event" style="offset-top: -20px !important;">
   <ion-grid style="margin-top: 30px;">
     <ion-row>
+
       <ion-col>
         <h1>
           {{event.name}}
@@ -10,7 +11,7 @@
             {{category}}
           </div>
         </h2>
-
+        <button *ngIf="event.owner_id === userId" (click)="edit()">Editar</button>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -48,17 +49,26 @@
             <p>{{event.direction.text}}</p>
           </ion-col>
         </ion-row>
+        <!--         &lt;!&ndash;-->
         <ion-row>
           <ion-col>
             <h2>Invitados</h2>
             <ul>
               <li *ngFor="let user of event.invited_status">
-                {{user.user_id}}
-                {{user.status}}
+                <p *ngIf="users[user.user_id]">
+                  {{users[user.user_id].firstName + " " + users[user.user_id].lastName}}
+                </p>
+                <p *ngIf="users[user.user_id]">
+                  {{users[user.user_id].name}}
+                </p>
+                <p *ngIf="inviteStatus">
+                  {{inviteStatus[user.status]}}
+                </p>
               </li>
             </ul>
           </ion-col>
         </ion-row>
+        <!--        &ndash;&gt;-->
         <ion-row>
           <ion-list>
             <ion-list-header>
@@ -66,40 +76,22 @@
                 Mensajes del evento
               </h2>
             </ion-list-header>
-            <ion-item>
+            <ion-item *ngFor="let message of event.messages">
               <ion-avatar>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSBYEDwhLv5nxNBvgli-sfvdlI5GBi2egs74jEaucPw8AYzyrf&s"
-                  alt="">
+                <img *ngIf="users[message.user_id]"
+                     src="{{users[message.user_id].photoUrl}}"
+                     alt="">
               </ion-avatar>
               <ion-label>
-                <h2>Ingrid</h2>
-                <p>Me gusto mucho este cafe cuando y a que hora vamos</p>
-              </ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-avatar>
-                <img src="https://miro.medium.com/fit/c/256/256/0*SrT91H8AGskb1eT5." alt="">
-              </ion-avatar>
-              <ion-label>
-                <h2>Kai</h2>
-                <p>Yo tengo libre el viernes a las 12</p>
-              </ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-avatar>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2GbSmgPSsJZtYLcF1xjErWJYEshgUUJd7F89pDn9hoTkfQNgTMQ&s"
-                  alt="">
-              </ion-avatar>
-              <ion-label>
-                <h2>Paulina</h2>
-                <p>Yo tambien tengo libre el viernes a la 1 de la tarde podemos ir</p>
+                <h2
+                  *ngIf="users[message.user_id]">{{users[message.user_id].firstName + " " + users[message.user_id].lastName}}</h2>
+                <p>{{message.text}}</p>
               </ion-label>
             </ion-item>
             <ion-item>
               <form [formGroup]="messageForm" (ngSubmit)="submitMessage(messageForm.value)">
-                <ion-input type="text" name="message" id="message" placeholder="Escribe tu mensaje"></ion-input>
+                <ion-input type="text" name="messageText" id="messageText" formControlName="messageText"
+                           placeholder="Escribe tu mensaje"></ion-input>
                 <ion-button type="submit">Enviar</ion-button>
               </form>
             </ion-item>

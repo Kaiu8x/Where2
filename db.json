@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 0,
+      "id": "0",
       "photoUrl": "https://www.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg",
       "firstName": "Pedro",
       "lastName": "Vázquez",
@@ -16,7 +16,7 @@
       }
     },
     {
-      "id": 1,
+      "id": "1",
       "photoUrl": "https://www.niemanlab.org/images/Greg-Emerson-edit-2.jpg",
       "firstName": "Juad",
       "lastName": "Pérez",
@@ -33,7 +33,7 @@
   ],
   "events": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Fiesta de Beto",
       "description": "Integración de ITC",
       "direction": {
@@ -47,25 +47,33 @@
       "category": 1,
       "messages": [
         {
-          "user_id": 1,
+          "user_id": "0",
           "text": "Hola"
         },
         {
-          "user_id": 2,
+          "user_id": "1",
           "text": "Adios"
+        },
+        {
+          "user_id": "0",
+          "text": "Bye"
+        },
+        {
+          "user_id": "0",
+          "text": "Holo"
         }
       ],
       "invited_status": [
         {
-          "user_id": 1,
+          "user_id": "1",
           "status": 1
         },
         {
-          "user_id": 2,
+          "user_id": "0",
           "status": 0
         }
       ],
-      "owner_id": 1,
+      "owner_id": "0",
       "photoUrls": [
         "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "https://images.pexels.com/photos/1449795/pexels-photo-1449795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -73,7 +81,7 @@
       "status": "activity"
     },
     {
-      "id": 1,
+      "id": "0",
       "name": "Fiesta de Kai",
       "description": "Integración de LADs",
       "direction": {
@@ -87,21 +95,21 @@
       "category": "1",
       "messages": [
         {
-          "user_id": 1,
+          "user_id": "0",
           "text": "Hola"
         },
         {
-          "user_id": 2,
+          "user_id": "1",
           "text": "Adios"
         }
       ],
       "invited_status": [
         {
-          "user_id": 1,
+          "user_id": "0",
           "status": 1
         },
         {
-          "user_id": 2,
+          "user_id": "1",
           "status": 0
         }
       ],

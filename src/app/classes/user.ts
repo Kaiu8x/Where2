@@ -1,6 +1,6 @@
 import {Event} from './event';
 export class User {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   events: Event[];

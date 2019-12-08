@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent},
   {path: 'users/:id', component: GeneralInfoComponent},
   {path: 'events/create', component: EventFormComponent},
+  {path: 'events/edit/:id', component: EventFormComponent},
   {path: 'events/:id', component: EventDetailComponent},
   {path: 'events', component: EventsPageComponent},
   {path: 'home', component: HomeComponent},
