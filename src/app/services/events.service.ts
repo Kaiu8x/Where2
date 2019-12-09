@@ -2,17 +2,33 @@ import {Injectable} from '@angular/core';
 
 import {Event} from '../classes/event';
 import {Observable, of, Subject, throwError} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse,
+  HttpClient
+} from '@angular/common/http';
 import {catchError, timeout} from 'rxjs/operators';
+import { UserService } from './user.service';
+import { AuthenticationService } from './authentication.service';
+
+import {tap} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EventsService {
+export class EventsService{
   endpoint = 'http://localhost:3000';
+  returnUrl: string;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ) {
   }
 
@@ -50,9 +66,14 @@ export class EventsService {
   addEvent(event: Event): Observable<Event> {
     const url = `${this.endpoint}/events`;
     event.id = null;
-    return this.http.post<Event>(url, event).pipe(
+    return this.http.post<Event>(url, event, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000),
       catchError((err) => {
+        console.log(err);
+
+        if(err["statusCode"] == 401 || err["statusCode"] == '401') {
+          this.router.navigate(['login']);
+        }
         return throwError(err);
       })
     );

@@ -22,7 +22,7 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 import {CardComponent} from './components/home/card/card.component';
 import {CalendarComponent} from './components/home/calendar/calendar.component';
 // import {SignInComponent} from './components/sign-in/sign-in.component';
-// import {RegisterComponent} from './components/register/register.component';
+import {RegisterComponent} from './components/register/register.component';
 import {GraphsComponent} from './components/graphs/graphs.component';
 import {IonicModule} from '@ionic/angular';
 import {AgmCoreModule} from '@agm/core';
@@ -47,8 +47,9 @@ const appRoutes: Routes = [
   {path: 'discover', component: DiscoverComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: PageNotFoundComponent},
-  {path: '**', component: PageNotFoundComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: '**', component: LoginComponent},
+  {path: '', component: LoginComponent},
 ]
 
 @NgModule({
@@ -67,7 +68,7 @@ const appRoutes: Routes = [
     CardComponent,
     CalendarComponent,
     // SignInComponent,
-    // RegisterComponent,
+    RegisterComponent,
     GraphsComponent,
     DiscoverComponent,
     ProfileComponent,
