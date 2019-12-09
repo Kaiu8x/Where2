@@ -37,11 +37,13 @@ export class EventsPageComponent implements OnInit {
 
   ngOnInit() {
     this.userId = this.userService.getId();
+    console.log("Getting events")
+    console.log(this.userId)
     this.getEvents();
   }
 
   getEvents(): void {
-    this.events = this.eventsService.getUserEvents( this.userId,this.loadingError);
+    this.events = this.eventsService.getUserEvents( this.userId, this.loadingError);
     console.log(this.events);
   }
 }

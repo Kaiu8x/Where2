@@ -9,16 +9,22 @@ import { Observable } from "rxjs";
 })
 export class UserService {
   endpoint = 'http://localhost:3000';
-  currentId = '5ded4beae949d6820a46cbeb';
+  currentId = '';
   SERVER_URL: string = 'http://localhost:3000/';
 
-  constructor(private httpClient: HttpClient) {}
-  
-  setId(id: string) {
+  constructor(private httpClient: HttpClient) { }
+
+  setId(id: any) {
     this.currentId = id;
   }
 
   getId(): string {
+    if (this.currentId === '') {
+      this.httpClient.get(this.SERVER_URL + 'users/me').subscribe(data => {
+        console.log("Setting Id");
+        this.setId(data["id"]);
+      });
+    }
     return this.currentId;
   }
 
@@ -28,10 +34,10 @@ export class UserService {
 
   getUser(id): Observable<User> {
     const url = `${this.endpoint}/users/${id}`;
-    return this.http.get<User>(url).pipe(
+    return this.httpClient.get<User>(url).pipe(
       timeout(5000));
   }
-  
+
   public postusers(users) {
     return this.httpClient.post(`${this.SERVER_URL + 'users'}`, users);
   }
@@ -44,6 +50,6 @@ export class UserService {
     return this.httpClient.delete(`${this.SERVER_URL + 'users'}/${id}`);
   }
   public updateusers(users) {
-    return this.httpClient.patch(`${this.SERVER_URL + 'users'}/${users.id}`, users );
+    return this.httpClient.patch(`${this.SERVER_URL + 'users'}/${users.id}`, users);
   }
 }

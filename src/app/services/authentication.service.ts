@@ -4,13 +4,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { User } from '../classes';
+import { UserService } from './user.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,private userService: UserService) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
     }
@@ -41,6 +42,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         console.log("erase localStorage");
+        this.userService.setId('');
         localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUserToken');
         this.currentUserSubject.next(null);
