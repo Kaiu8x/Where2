@@ -42,7 +42,7 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         console.log("erase localStorage");
-        this.userService.setId('');
+        this.userService.currentId = '';
         localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUserToken');
         this.currentUserSubject.next(null);

@@ -14,17 +14,11 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  setId(id: any) {
-    this.currentId = id;
+  setId() {
+    return this.httpClient.get(this.SERVER_URL + 'users/me');
   }
 
   getId(): string {
-    if (this.currentId === '') {
-      this.httpClient.get(this.SERVER_URL + 'users/me').subscribe(data => {
-        console.log("Setting Id");
-        this.setId(data["id"]);
-      });
-    }
     return this.currentId;
   }
 
