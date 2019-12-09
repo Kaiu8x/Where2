@@ -3,6 +3,7 @@ import { EventsService } from "../../services/events.service";
 import { FormArray, FormBuilder, Validators, FormControl } from "@angular/forms";
 import { Event } from "../../classes/event";
 import { UserService } from 'src/app/services/user.service';
+import { AlertController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-event-form',
@@ -17,7 +18,8 @@ export class EventFormComponent implements OnInit {
 
   constructor(private eventsService: EventsService,
     private userService: UserService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public alertController: AlertController
   ) {
     this.eventForm = this.formBuilder.group({
       name: '',
@@ -28,6 +30,14 @@ export class EventFormComponent implements OnInit {
     });
   }
 
+  async presentAlert() { 
+    const alert = await this.alertController.create({ 
+      header: 'Event created', 
+      message: 'The event was created successfully!', 
+      buttons: ['OK']
+    });  
+    await alert.present(); 
+  } 
 
   addPhoto() {
     const form = new FormControl("");

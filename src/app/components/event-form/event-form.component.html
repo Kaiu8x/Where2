@@ -1,4 +1,5 @@
 <!-- <p>event-form works!</p> -->
+
 <ion-content overflow-scroll="true">
   <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
     <div style="padding-top: 50px;">
@@ -38,7 +39,7 @@
         </ion-item>
 
         <div class="ion-padding">
-          <ion-button expand="block" type="submit" class="ion-no-margin button" color="tertiary">Add</ion-button>
+          <ion-button expand="block" type="submit" class="ion-no-margin button" color="tertiary" (click)="presentAlert()">Add</ion-button>
         </div>
       </ion-list>
     </div>
