@@ -29,8 +29,9 @@ import {AgmCoreModule} from '@agm/core';
 import {DiscoverComponent} from './components/discover/discover.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import {FilterOnIdPipe} from "./components/event-detail/Aux";
+import { ReactiveFormsModule } from '@angular/forms';
+import { FilterOnIdPipe } from "./components/event-detail/Aux";
+import { GooglePlaceModule } from "node_modules/ngx-google-places-autocomplete";
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor   } from './helpers/error.interceptor';
@@ -85,7 +86,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes,
-      {enableTracing: true}
+      { enableTracing: true }
     ),
     HttpClientModule,
     TranslateModule.forRoot({
@@ -99,9 +100,10 @@ const appRoutes: Routes = [
     }),
     IonicModule.forRoot(),
     AgmCoreModule.forRoot({
-        apiKey: 'AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ',
-      }
-    ),
+      apiKey: "AIzaSyDh_7kD-kYAlIYjWRXbHZvO6t2UjtFrmNQ",
+      libraries: ["places"]
+    }),
+    GooglePlaceModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
