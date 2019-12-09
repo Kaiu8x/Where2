@@ -1,4 +1,23 @@
 <!-- <p>event-form works!</p> -->
+<ion-content>
+  <input placeholder="Search" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control"
+            #searchEvent [formControl]="searchControl" style="width: 95%; padding: 20px; margin: 20px;" />
+  <ion-grid>
+  <ion-row>
+      <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="12" size-md="12" id="map-holder">
+          <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" class="ion-text-center">
+          <agm-marker #marker [latitude]="latitude" [longitude]="longitude" [animation]="userLocationMarkerAnimation"
+                    (markerClick)="clickedMarker(infowindow)" (mouseOver)="markerOver()" (mouseOut)="markerOut()">
+          <agm-info-window #infowindow>
+              <ion-title>{{label}}</ion-title><br>
+                  <ion-button color="tertiary" (click)="addToEvent()">Add to Event</ion-button>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
 
 <ion-content overflow-scroll="true">
   <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
@@ -13,7 +32,8 @@
           <ion-label for="description" position="floating">Description</ion-label>
           <ion-textarea id="description" formControlName="description"></ion-textarea>
         </ion-item>
-
+        
+        
         <ion-item>
           <ion-label for="address" position="floating">Address</ion-label>
           <ion-input id="address" formControlName="address"></ion-input>
