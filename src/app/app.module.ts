@@ -30,6 +30,7 @@ import {DiscoverComponent} from './components/discover/discover.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {FilterOnIdPipe} from "./components/event-detail/Aux";
 
 import { JwtInterceptor } from './helpers/jwt.interceptor';
 import { ErrorInterceptor   } from './helpers/error.interceptor';
@@ -41,6 +42,7 @@ const appRoutes: Routes = [
   {path: 'users/:id/settings', component: UserSettingsComponent, canActivate: [AuthGuard]},
   {path: 'users/:id', component: GeneralInfoComponent, canActivate: [AuthGuard]},
   {path: 'events/create', component: EventFormComponent, canActivate: [AuthGuard]},
+  {path: 'events/edit/:id', component: EventFormComponent, canActivate: [AuthGuard]},
   {path: 'events/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
   {path: 'events', component: EventsPageComponent},
   {path: 'home', component: HomeComponent},
@@ -74,6 +76,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     EventFormComponent,
     LoginComponent,
+    FilterOnIdPipe,
   ],
   imports: [
     BrowserModule,

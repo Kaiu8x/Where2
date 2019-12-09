@@ -1,12 +1,12 @@
-import {Event} from './event';
+import { Event } from './event';
 export class User {
-  id: number;
+  id: string;
   username: string;
   password: string;
   firstName: string;
   lastName: string;
-  events: Event[];
-  friends: User[];
-  profileImg: string;
+  email: string;
+  friends: string[];
+  photoUrl: string;
   token?: string;
 }
