@@ -9,5 +9,16 @@
         "home" : "Home",
         "discover": "Discover",
         "profile" : "Profile"
+    },
+
+    "formulario":{
+        "matricula":"ID",
+        "nombre":"First Name",
+        "paterno":"Last Name",
+        "materno":"Mother's Name"
+    },
+    
+    "admin":{
+        "titulo":"Welcome"
     }
 }

@@ -9,5 +9,16 @@
     	"home" : "Principal",
     	"discover": "Descubre",
     	"profile" : "Preferencias"
+    },
+
+    "formulario":{
+        "matricula":"ID",
+        "nombre":"Primer nombre",
+        "paterno":"Apellido Paterno",
+        "materno":"Apellido Materno"
+    },
+
+    "admin":{
+        "titulo":"Bienvenido"
     }
 }

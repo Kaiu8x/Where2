@@ -3,7 +3,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -30,16 +31,22 @@ import {ProfileComponent} from './components/profile/profile.component';
 import { EventFormComponent } from './components/event-form/event-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor   } from './helpers/error.interceptor';
+
+import { AuthGuard } from './guards/auth.guard';
+import { LoginComponent } from './components/login/login.component';
+
 const appRoutes: Routes = [
-  {path: 'users/:id/settings', component: UserSettingsComponent},
-  {path: 'users/:id', component: GeneralInfoComponent},
-  {path: 'events/create', component: EventFormComponent},
-  {path: 'events/:id', component: EventDetailComponent},
+  {path: 'users/:id/settings', component: UserSettingsComponent, canActivate: [AuthGuard]},
+  {path: 'users/:id', component: GeneralInfoComponent, canActivate: [AuthGuard]},
+  {path: 'events/create', component: EventFormComponent, canActivate: [AuthGuard]},
+  {path: 'events/:id', component: EventDetailComponent, canActivate: [AuthGuard]},
   {path: 'events', component: EventsPageComponent},
   {path: 'home', component: HomeComponent},
   {path: 'discover', component: DiscoverComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'login', component: PageNotFoundComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'register', component: PageNotFoundComponent},
   {path: '**', component: PageNotFoundComponent},
 ]
@@ -65,12 +72,14 @@ const appRoutes: Routes = [
     DiscoverComponent,
     ProfileComponent,
     EventFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes,
       {enableTracing: true}
     ),
@@ -90,7 +99,10 @@ const appRoutes: Routes = [
       }
     ),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,8 +7,9 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+
 <ion-app>
-  <app-top-nav-bar></app-top-nav-bar>
+  <app-top-nav-bar [currentUser]="currentUser"></app-top-nav-bar>
   <router-outlet></router-outlet>
   <app-bottom-navbar></app-bottom-navbar>
 </ion-app>

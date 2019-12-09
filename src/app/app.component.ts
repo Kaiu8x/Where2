@@ -1,4 +1,11 @@
 import { Component, HostBinding } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { AuthenticationService } from './services/authentication.service';
+import { User } from './classes';
+
+
+import { AuthGuard } from './guards/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +13,12 @@ import { Component, HostBinding } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Where2';
+	currentUser: User;
+	title = 'Where2';
+
+	constructor(
+        private authenticationService: AuthenticationService
+    ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
 }

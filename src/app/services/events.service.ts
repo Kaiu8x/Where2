@@ -19,7 +19,7 @@ export class EventsService {
   // Get
   getEvents(loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events`;
-    return this.http.get(url).pipe(
+    return this.http.get(url/*, {headers:{'Authorization': 'Bearer ' +localStorage.getItem(currentUserToken)}}*/).pipe(
       timeout(5000),
       catchError(() => {
         loadingError.next(true);

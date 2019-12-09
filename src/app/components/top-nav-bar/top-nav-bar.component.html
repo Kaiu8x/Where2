@@ -6,5 +6,8 @@
   	<ion-title>Where 2</ion-title>
   	<ion-button (click)="cambiarLenguaje('en')" [ngClass]="{'btn btn-outline-dark':language == 'en'}" slot="end">{{'language.english' | translate}}</ion-button>
 	<ion-button (click)="cambiarLenguaje('es')" [ngClass]="{'btn btn-outline-dark':language == 'es'}" slot="end">{{'language.spanish' | translate}}</ion-button>
+	
+	<ion-button (click)="logout()" [ngClass]="{'btn btn-outline-dark':language == 'en'}" slot="end" >Logout</ion-button>
+
   </ion-toolbar>
 </ion-header>
