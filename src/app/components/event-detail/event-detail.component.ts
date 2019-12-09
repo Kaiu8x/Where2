@@ -34,7 +34,7 @@ export class EventDetailComponent implements OnInit {
     this.userId = this.userService.getId();
     this.categories = this.eventsService.getCategories();
     this.eventsService.getInviteStatus().subscribe(data => {
-      this.inviteStatus = data;
+      this.inviteStatus = data.map(e => e.es);
     });
   }
 
@@ -42,7 +42,9 @@ export class EventDetailComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.eventsService.getEvent(id, this.loadingError).subscribe(data => {
       this.event = data;
+      console.log("Data")
       console.log(data);
+      console.log(this.event);
       this.getUsers();
     });
     console.log(this.event);
@@ -72,7 +74,7 @@ export class EventDetailComponent implements OnInit {
 
   submitMessage(message) {
     const fullMesage = {
-      user_id: 0,
+      user_id: this.userId,
       text: message.messageText
     };
     console.log("Sending message", message);

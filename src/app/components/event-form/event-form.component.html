@@ -27,17 +27,17 @@
     <label for="category">
       Category
     </label>
-    <select formControlName="category" id="category">
-      <option *ngFor="let category of categories | async">
-        {{category}}
+    <select formControlName="category" id="category" >
+      <option *ngFor="let category of categories | async;let i = index"[value]="i">
+        {{category.es}}
       </option>
     </select>
   </div>
 
-  <div>
+  <div formArrayName="photoUrls">
     <button type="button" (click)="addPhoto()">Add Photo URl</button>
     <ul>
-      <li *ngFor="let photo of photoUrls.controls; let i = index">
+      <li *ngFor="let photo of eventForm.get('photoUrls').controls; let i = index">
         <input type="text" class="form-control" [formControlName]="i">
       </li>
     </ul>
