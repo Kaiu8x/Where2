@@ -1,51 +1,91 @@
-<p>event-form works!</p>
-<form [formGroup]="eventForm"
-      (ngSubmit)="onSubmit(eventForm.value)">
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input type="text" id="name" formControlName="name">
-  </div>
+<!-- <p>event-form works!</p> -->
+<ion-content overflow-scroll="true">
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit(eventForm.value)">
+    <div style="padding-top: 50px;">
+      <ion-list lines="full">
+        <ion-item>
+          <ion-label for="name" position="floating">Name</ion-label>
+          <ion-input id="name" formControlName="name"></ion-input>
+        </ion-item>
 
-  <div>
-    <label for="description">
-      Description
-    </label>
-    <input type="text" id="description" formControlName="description">
-  </div>
+        <ion-item>
+          <ion-label for="description" position="floating">Description</ion-label>
+          <ion-textarea id="description" formControlName="description"></ion-textarea>
+        </ion-item>
 
-  <div>
-    <label for="address">
-      Address
-    </label>
-    <input type="text" id="address" formControlName="address">
-  </div>
+        <ion-item>
+          <ion-label for="address" position="floating">Address</ion-label>
+          <ion-input id="address" formControlName="address"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label for="category" position="floating">Category</ion-label>
+          <ion-select formControlName="category" id="category">
+            <ion-select-option *ngFor="let category of categories | async">{{category}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Photo</ion-label>
+          <ion-button type="button" (click)="addPhoto()" class="ion-no-margin" color="tertiary">Add Photo URL
+          </ion-button>
+          <ion-row *ngFor="let photo of photoUrls.controls; let i = index">
+            <ion-col>
+              <ion-label position="stacked">Image URL</ion-label>
+              <ion-input type="text" class="form-control" [formControlName]="i"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+
+        <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin button" color="tertiary">Add</ion-button>
+        </div>
+      </ion-list>
+    </div>
+
+    <!-- 
+    <div>
+      <label for="name">
+        Name
+      </label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+
+    <div>
+      <label for="description">
+        Description
+      </label>
+      <input type="text" id="description" formControlName="description">
+    </div>
+
+    <div>
+      <label for="address">
+        Address
+      </label>
+      <input type="text" id="address" formControlName="address">
+    </div>
 
 
-  <div>
-    <label for="category">
-      Category
-    </label>
-    <select formControlName="category" id="category" >
-      <option *ngFor="let category of categories | async;let i = index"[value]="i">
-        {{category.es}}
-      </option>
-    </select>
-  </div>
+    <div>
+      <label for="category">
+        Category
+      </label>
+      <select formControlName="category" id="category">
+        <option *ngFor="let category of categories | async">
+          {{category}}
+        </option>
+      </select>
+    </div>
 
-  <div formArrayName="photoUrls">
-    <button type="button" (click)="addPhoto()">Add Photo URl</button>
-    <ul>
-      <li *ngFor="let photo of eventForm.get('photoUrls').controls; let i = index">
-        <input type="text" class="form-control" [formControlName]="i">
-      </li>
-    </ul>
-<!--    <label for="photoURLs">-->
-<!--      Photos-->
-<!--    </label>-->
-<!--    <input type="text" id="photoURLs" formControlName="photoUrls">-->
-  </div>
+    <div>
+      <button type="button" (click)="addPhoto()">Add Photo URl</button>
+      <ul>
+        <li *ngFor="let photo of photoUrls.controls; let i = index">
+          <input type="text" class="form-control" [formControlName]="i">
+        </li>
+      </ul>
+    </div>
 
-  <button class="button" type="submit">Add</button>
-</form>
+    <button class="button" type="submit">Add</button> -->
+  </form>
+</ion-content>

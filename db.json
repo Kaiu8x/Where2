@@ -61,6 +61,14 @@
         {
           "user_id": "0",
           "text": "Holo"
+        },
+        {
+          "user_id": 0,
+          "text": "hola"
+        },
+        {
+          "user_id": 0,
+          "text": "cómo te va?"
         }
       ],
       "invited_status": [
@@ -118,6 +126,16 @@
         "https://images.pexels.com/photos/1449795/pexels-photo-1449795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
       ]
+    },
+    {
+      "name": "Graduación",
+      "description": "Fiesta de graduación ITC 2019",
+      "address": "ITESM CCM",
+      "category": "party",
+      "photoUrls": [
+        ""
+      ],
+      "id": "zfSHRxr"
     }
   ],
   "categories": [
