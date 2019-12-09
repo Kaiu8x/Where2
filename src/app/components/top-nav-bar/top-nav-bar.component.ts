@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {User} from '../../classes/user';
 import { AuthenticationService } from '../../services/authentication.service';
+import { EventsService } from 'src/app/services/events.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class TopNavBarComponent implements OnInit {
   usuario;
 
   constructor( private translate: TranslateService,
+    private eventService: EventsService,
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService
@@ -31,6 +33,8 @@ export class TopNavBarComponent implements OnInit {
   }
 
   public cambiarLenguaje(lang){
+    console.log("Cambiando idioma");
+    this.eventService.language = lang;
     this.language = lang;
     this.translate.use(lang);
   }

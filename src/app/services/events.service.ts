@@ -22,6 +22,7 @@ import {Router} from '@angular/router';
 })
 export class EventsService{
   endpoint = 'http://localhost:3000';
+  language = 'en';
   returnUrl: string;
 
   constructor(
@@ -30,6 +31,9 @@ export class EventsService{
     private authenticationService: AuthenticationService,
     private userService: UserService
   ) {
+  }
+  getLanguage(){
+    return this.language;
   }
 
   // Get
@@ -117,7 +121,7 @@ export class EventsService{
 
   // Get
   getCategories(): Observable<string[]> {
-    const url = `${this.endpoint}/event-categories?filter[fields][es]=false`;
+    const url = `${this.endpoint}/event-categories?filter[fields][${this.language}]=false`;
     return this.http.get<string[]>(url);
   }
 }
