@@ -1,6 +1,7 @@
-import {Component, OnInit, NgModule} from '@angular/core';
+import {Component, OnInit, NgModule, Input} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import { UserService } from 'src/app/services/user.service';
+import {Router , ActivatedRoute} from '@angular/router';
 
 @NgModule({})
 
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit {
   public lenguaje = 'en';
 
-  constructor(private translate: TranslateService, private userService:UserService) {
+  constructor(private translate: TranslateService, private userService:UserService, private router: Router) {
     this.translate.setDefaultLang(this.lenguaje);
   }
 
@@ -28,6 +29,10 @@ export class HomeComponent implements OnInit {
   public cambiarLenguaje(lang) {
     this.lenguaje = lang;
     this.translate.use(lang);
+  }
+
+  eventsCreate() {
+    this.router.navigate(['events/create']);
   }
 
 }

@@ -2,7 +2,13 @@
 	padding-top: 60px;
 }
 
-ion-fab {
+ion-button {
+	position: fixed;
+	bottom: 4%;
+	right: 2%;
+}
+
+ion-fab-button {
 	position: fixed;
 	bottom: 4%;
 	right: 2%;
