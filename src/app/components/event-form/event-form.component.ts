@@ -16,7 +16,6 @@ declare var google;
 })
 export class EventFormComponent implements OnInit {
   eventForm;
-  categories;
 
   userId;
 
@@ -28,6 +27,8 @@ export class EventFormComponent implements OnInit {
   public address: string;
   public userLocationMarkerAnimation: string;
   public location;
+  categories;
+  language;
   previous;
 
   @ViewChild("map", { static: false }) mapElement: ElementRef;
@@ -46,6 +47,8 @@ export class EventFormComponent implements OnInit {
     }
     this.previous = infowindow;
   }
+
+  
 
   markerOver(marker) {
     this.userLocationMarkerAnimation = 'BOUNCE';
@@ -75,13 +78,20 @@ export class EventFormComponent implements OnInit {
     });
   }
 
-  async presentAlert() { 
-    const alert = await this.alertController.create({ 
-      header: 'Event created', 
-      message: 'The event was created successfully!', 
-      buttons: ['OK']
-    });  
-    await alert.present(); 
+  getCategories(){
+    this.language = this.eventsService.getLanguage()
+    this.eventsService.getCategories().subscribe( data => {
+      this.categories = data;
+    });
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Event created',
+      message: 'The event was created successfully!',
+      buttons: ['OK'],
+    });
+    await alert.present();
   } 
 
   get photoUrls() {
@@ -94,8 +104,10 @@ export class EventFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userId = this.userService.getId()
-    this.categories = this.eventsService.getCategories();
+    this.language = this.eventsService.getLanguage();
+    this.userId = this.userService.getId();
+    //this.categories = this.eventsService.getCategories();
+    this.getCategories();
 
     //set google maps defaults
     this.zoom = 4;

@@ -42,10 +42,10 @@
         </ion-item>
 
   
-        <ion-item>
+        <ion-item (click)="getCategories()">
           <ion-label for="category" position="floating">Category</ion-label>
           <ion-select formControlName="category" id="category">
-            <ion-select-option *ngFor="let category of categories | async">{{category.es}}</ion-select-option>
+            <ion-select-option *ngFor="let category of categories">{{category[language]}}</ion-select-option>
           </ion-select>
         </ion-item>
 
