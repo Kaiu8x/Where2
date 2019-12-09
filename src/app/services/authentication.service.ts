@@ -47,6 +47,7 @@ export class AuthenticationService {
         this.userService.currentId = '';
         localStorage.removeItem('currentUser');
         localStorage.removeItem('currentUserToken');
+        localStorage.removeItem('userID');
         this.currentUserSubject.next(null);
     }
 }

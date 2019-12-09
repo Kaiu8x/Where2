@@ -27,6 +27,7 @@ export class EventFormComponent implements OnInit {
   public label: string;
   public address: string;
   public userLocationMarkerAnimation: string;
+  public location;
   previous;
 
   @ViewChild("map", { static: false }) mapElement: ElementRef;
@@ -54,7 +55,7 @@ export class EventFormComponent implements OnInit {
     this.userLocationMarkerAnimation = '';
   }
 
-  @ViewChild("searchEvent", { static: false })
+  @ViewChild("search", { static: false })
   public searchElementRef: ElementRef;
 
 
@@ -82,6 +83,10 @@ export class EventFormComponent implements OnInit {
     });  
     await alert.present(); 
   } 
+
+  get photoUrls() {
+    return this.eventForm.get('photoUrls') as FormArray;
+  }
 
   addPhoto() {
     const form = new FormControl("");
@@ -126,6 +131,8 @@ export class EventFormComponent implements OnInit {
           this.zoom = 15;
           this.label = place.name;
           this.address = place.formatted_address;
+          this.location = this.label + ", " + this.address + ", " + 
+          place.geometry.location;
 
         });
       });
