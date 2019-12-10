@@ -117,11 +117,18 @@ export class EventsService{
       timeout(5000)
     );
   }
+  
+  getCategories(): Observable<any[]> {
+    const url = `${this.endpoint}/events?filter[fields][es]=false`;
+    return this.http.get<any[]>(url).pipe(
+      timeout(5000)
+    );
+  }
 
 
   // Get
-  getCategories(): Observable<string[]> {
-    const url = `${this.endpoint}/event-categories?filter[fields][${this.language}]=false`;
-    return this.http.get<string[]>(url);
+  getPromoted(): Observable<any[]> {
+    const url = `${this.endpoint}/events?filter={"where":{"owner_id":"-1"}}`;
+    return this.http.get<any[]>(url);
   }
 }

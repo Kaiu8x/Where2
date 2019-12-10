@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventsService } from 'src/app/services/events.service';
+import { Event } from "../../classes/event";
 
 @NgModule({})
 
@@ -13,6 +14,7 @@ import { EventsService } from 'src/app/services/events.service';
 })
 export class HomeComponent implements OnInit {
   public lenguaje = 'en';
+  promoted: Event[]; 
 
   constructor(private translate: TranslateService , private eventService: EventsService, private userService: UserService, private router: Router) {
     this.translate.setDefaultLang(this.lenguaje);
@@ -24,6 +26,11 @@ export class HomeComponent implements OnInit {
       console.log("Setting Id")
       console.log(data)
       this.userService.currentId = data["id"];
+    })
+    this.eventService.getPromoted().subscribe(data => {
+      console.log("Got")
+      console.log(data[0])
+      this.promoted = data; 
     })
   }
 
