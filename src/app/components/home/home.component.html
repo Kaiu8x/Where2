@@ -8,19 +8,8 @@
 		<ion-col size="10">
 			<ion-slides pager="true" [options]="{ initialSlide: 1, speed: 400}" class="carrousel">
 				<ion-slide>
-					<div class="item-carousel">
-						<app-card></app-card>
-					</div>
-					<div class="item-carousel">
-						<app-card></app-card>
-					</div>
-					<div class="item-carousel">
-						<app-card></app-card>
-					</div>
-				</ion-slide>
-				<ion-slide>
 					<div class="item-carousel" *ngIf="promoted">
-						<ion-card>
+						<ion-card (click)="eventDetail(promoted[0].id)" fill="outline" slot="start">
 							<ion-card-content>
 								<ion-img src="{{promoted[0].photoUrls[0]}}">
 								</ion-img>
@@ -32,14 +21,10 @@
 							<ion-card-content>
 								{{promoted[0].description}}
 							</ion-card-content>
-							<ion-item class="activated">
-								<ion-button href="/events/{{promoted[0].id}}" fill="outline" slot="start">Details</ion-button>
-								<ion-button fill="outline" slot="end">Page</ion-button>
-							</ion-item>
 						</ion-card>
 					</div>
 					<div class="item-carousel" *ngIf="promoted">
-						<ion-card>
+						<ion-card (click)="eventDetail(promoted[1].id)" fill="outline" slot="start">
 							<ion-card-content>
 								<ion-img src="{{promoted[1].photoUrls[0]}}">
 								</ion-img>
@@ -51,14 +36,10 @@
 							<ion-card-content>
 								{{promoted[1].description}}
 							</ion-card-content>
-							<ion-item class="activated">
-								<ion-button href="/events/{{promoted[1].id}}" fill="outline" slot="start">Details</ion-button>
-								<ion-button fill="outline" slot="end">Page</ion-button>
-							</ion-item>
 						</ion-card>
 					</div>
 					<div class="item-carousel" *ngIf="promoted">
-						<ion-card>
+						<ion-card (click)="eventDetail(promoted[2].id)" fill="outline" slot="start">
 							<ion-card-content>
 								<ion-img src="{{promoted[2].photoUrls[0]}}">
 								</ion-img>
@@ -70,10 +51,6 @@
 							<ion-card-content>
 								{{promoted[2].description}}
 							</ion-card-content>
-							<ion-item class="activated">
-								<ion-button href="/events/{{promoted[2].id}}" fill="outline" slot="start">Details</ion-button>
-								<ion-button fill="outline" slot="end">Page</ion-button>
-							</ion-item>
 						</ion-card>
 					</div>
 				</ion-slide>

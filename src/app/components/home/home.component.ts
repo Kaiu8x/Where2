@@ -45,4 +45,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['events/create']);
   }
 
+  eventDetail(route) {
+    this.router.navigate(['events/'+route]);
+  }
+
 }

@@ -130,23 +130,15 @@ export class EventsService{
     );
   }
   
-  getCategories(): Observable<any[]> {
-    const url = `${this.endpoint}/events?filter[fields][es]=false`;
-    return this.http.get<any[]>(url).pipe(
-      timeout(5000)
-    );
-  }
-
-
-  // Get
-<<<<<<< HEAD
+  
   getCategories(): Observable<string[]> {
     const url = `${this.endpoint}/event-categories?filter[fields][${this.language}]=false`;
     return this.http.get<string[]>(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}});
-=======
+  }
+  
   getPromoted(): Observable<any[]> {
     const url = `${this.endpoint}/events?filter={"where":{"owner_id":"-1"}}`;
     return this.http.get<any[]>(url);
->>>>>>> 42e127d8f40d572b63e98e6fe30e0bb4ee4d5726
   }
+
 }
