@@ -12,6 +12,13 @@
           <ion-label for="description" position="floating">Description</ion-label>
           <ion-textarea id="description" formControlName="description"></ion-textarea>
         </ion-item>
+
+        <ion-item>
+          <ion-label for="date" position="stacked">Date</ion-label>
+          <ion-datetime id="date" display-format="MMM DD, YYYY HH:mm" picker-format="YYYY-MM-DDTHH:mmZ"
+            placeholder="Select Time" formControlName="date">
+          </ion-datetime>
+        </ion-item>
         
         <ion-item color="light">
           <ion-label for="address" position="stacked">Address</ion-label>

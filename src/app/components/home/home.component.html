@@ -19,110 +19,59 @@
 					</div>
 				</ion-slide>
 				<ion-slide>
-					<div class="item-carousel">
+					<div class="item-carousel" *ngIf="promoted">
 						<ion-card>
 							<ion-card-content>
-								<ion-img src="https://www.trendmexico.com/wp-content/uploads/2017/10/Bar27interior.png">
+								<ion-img src="{{promoted[0].photoUrls[0]}}">
 								</ion-img>
 							</ion-card-content>
 							<ion-card-header>
-								<ion-card-title>Bar 27</ion-card-title>
-								<ion-card-subtitle>Antro</ion-card-subtitle>
+								<ion-card-title>{{promoted[0].name}}</ion-card-title>
+								<ion-card-subtitle></ion-card-subtitle>
 							</ion-card-header>
 							<ion-card-content>
-								En la barra de Bar 27, cuentan con 101 exquisitos y únicos shots de distintos sabores...
+								{{promoted[0].description}}
 							</ion-card-content>
 							<ion-item class="activated">
-								<ion-icon name="cash" slot="start"></ion-icon>
-								<ion-label>Price: $$</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="time" slot="start"></ion-icon>
-								<ion-label>Horario: 23:00 - 06:00</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="map" slot="start"></ion-icon>
-								<ion-label>ETA: 15min Distance: 8Km</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="pricetags" slot="start"></ion-icon>
-								<ion-label>#Fiesta, #Antro, #Fresa</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-button href="/events/1" fill="outline" slot="start">Details</ion-button>
+								<ion-button href="/events/{{promoted[0].id}}" fill="outline" slot="start">Details</ion-button>
 								<ion-button fill="outline" slot="end">Page</ion-button>
 							</ion-item>
 						</ion-card>
 					</div>
-					<div class="item-carousel">
+					<div class="item-carousel" *ngIf="promoted">
 						<ion-card>
 							<ion-card-content>
-								<ion-img
-									src="https://img.chilango.com/2019/01/47054797_704078543319032_4714674225216205474_n.jpg">
+								<ion-img src="{{promoted[1].photoUrls[0]}}">
 								</ion-img>
 							</ion-card-content>
 							<ion-card-header>
-								<ion-card-title>The Secret Donut Society</ion-card-title>
-								<ion-card-subtitle>Coffe shop</ion-card-subtitle>
+								<ion-card-title>{{promoted[1].name}}</ion-card-title>
+								<ion-card-subtitle></ion-card-subtitle>
 							</ion-card-header>
 							<ion-card-content>
-								No es uno de los nuevos restaurantes en CDMX, es un club de donas y es secreto...
+								{{promoted[1].description}}
 							</ion-card-content>
 							<ion-item class="activated">
-								<ion-icon name="cash" slot="start"></ion-icon>
-								<ion-label>Price: $</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="time" slot="start"></ion-icon>
-								<ion-label>Horario: 10:00 - 21:00</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="map" slot="start"></ion-icon>
-								<ion-label>ETA: 5min Distance:3Km </ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="pricetags" slot="start"></ion-icon>
-								<ion-label>#Cute, #Date, #Cofee</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-button href="/events/1" fill="outline" slot="start">Details</ion-button>
+								<ion-button href="/events/{{promoted[1].id}}" fill="outline" slot="start">Details</ion-button>
 								<ion-button fill="outline" slot="end">Page</ion-button>
 							</ion-item>
 						</ion-card>
 					</div>
-					<div class="item-carousel">
+					<div class="item-carousel" *ngIf="promoted">
 						<ion-card>
 							<ion-card-content>
-								<ion-img
-									src="https://rbvfcn.cinetecanacional.net/CDN/media/entity/get/FilmStill/1000004729?referenceScheme=Cinema&allowPlaceHolder=true&width=450">
+								<ion-img src="{{promoted[2].photoUrls[0]}}">
 								</ion-img>
 							</ion-card-content>
 							<ion-card-header>
-								<ion-card-title>El irlandés</ion-card-title>
-								<ion-card-subtitle>Cineteca nacional</ion-card-subtitle>
+								<ion-card-title>{{promoted[2].name}}</ion-card-title>
+								<ion-card-subtitle></ion-card-subtitle>
 							</ion-card-header>
 							<ion-card-content>
-								Frank Sheeran fue un veterano de la Segunda Guerra Mundial, estafador y sicario, que se
-								relacionó con algunas de las figuras...
+								{{promoted[2].description}}
 							</ion-card-content>
 							<ion-item class="activated">
-								<ion-icon name="cash" slot="start"></ion-icon>
-								<ion-label>Price: $</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="time" slot="start"></ion-icon>
-								<ion-label>Horario: 16:00, 20:00 </ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="map" slot="start"></ion-icon>
-								<ion-label>ETA: 7min Distance: 4Km</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-icon name="pricetags" slot="start"></ion-icon>
-								<ion-label>#Martin Scorsese, #Movie, #Art</ion-label>
-							</ion-item>
-							<ion-item class="activated">
-								<ion-button href="/events/1" fill="outline" slot="start">Details</ion-button>
+								<ion-button href="/events/{{promoted[2].id}}" fill="outline" slot="start">Details</ion-button>
 								<ion-button fill="outline" slot="end">Page</ion-button>
 							</ion-item>
 						</ion-card>
