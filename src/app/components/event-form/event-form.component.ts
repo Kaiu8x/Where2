@@ -16,6 +16,7 @@ declare var google;
 })
 export class EventFormComponent implements OnInit {
   eventForm;
+  categories;
 
   userId;
 
@@ -27,7 +28,8 @@ export class EventFormComponent implements OnInit {
   public address: string;
   public userLocationMarkerAnimation: string;
   public location;
-  categories;
+  public tmpAddress;
+  public tmpLocation;
   language;
   previous;
 
@@ -142,9 +144,8 @@ export class EventFormComponent implements OnInit {
           this.longitude = place.geometry.location.lng();
           this.zoom = 15;
           this.label = place.name;
-          this.address = place.formatted_address;
-          this.location = this.label + ", " + this.address + ", " + 
-          place.geometry.location;
+          this.tmpAddress = place.formatted_address;
+          this.tmpLocation = place.geometry.location;
 
         });
       });
@@ -175,6 +176,9 @@ export class EventFormComponent implements OnInit {
 
     // Place Longitude
     console.log(this.longitude);
+    
+    this.address = this.tmpAddress;
+    this.location = this.tmpLocation;
 
     document.getElementById("address").innerHTML = ""+this.latitude+","+this.longitude+"";
 
