@@ -146,7 +146,7 @@ export class EventFormComponent implements OnInit {
           this.zoom = 15;
           this.label = place.name;
           this.tmpAddress = place.formatted_address;
-          this.tmpLocation = ""+this.latitude+","+this.longitude+"";
+          this.tmpLocation = place.geometry.location;
 
         });
       });
