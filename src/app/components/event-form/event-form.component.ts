@@ -74,6 +74,7 @@ export class EventFormComponent implements OnInit {
     this.eventForm = this.formBuilder.group({
       name: '',
       description: '',
+      date:'',
       address: '',
       category: '',
       photoUrls: new FormArray([]),
@@ -145,7 +146,7 @@ export class EventFormComponent implements OnInit {
           this.zoom = 15;
           this.label = place.name;
           this.tmpAddress = place.formatted_address;
-          this.tmpLocation = place.geometry.location;
+          this.tmpLocation = ""+this.latitude+","+this.longitude+"";
 
         });
       });
@@ -180,7 +181,7 @@ export class EventFormComponent implements OnInit {
     this.address = this.tmpAddress;
     this.location = this.tmpLocation;
 
-    document.getElementById("address").innerHTML = ""+this.latitude+","+this.longitude+"";
+    //document.getElementById("address").innerHTML = ""+this.latitude+","+this.longitude+"";
 
     const alert = await this.alertController.create({
       header: 'Alert',

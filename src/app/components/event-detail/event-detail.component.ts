@@ -55,12 +55,12 @@ export class EventDetailComponent implements OnInit {
   }
 
   getUsers() {
-    for (const message of this.event.messages) {
-      this.getUser(message.user_id);
-    }
-    for (const invited of this.event.invited_status) {
-      this.getUser(invited.user_id);
-    }
+    //for (const message of this.event.messages) {
+      //this.getUser(message.user_id);
+    //}
+    //for (const invited of this.event.invited_status) {
+      //this.getUser(invited.user_id);
+    //}
   }
 
 

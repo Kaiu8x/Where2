@@ -39,9 +39,12 @@ export class EventsService{
   // Get
   getEvents(loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events`;
-    return this.http.get(url/*, {headers:{'Authorization': 'Bearer ' +localStorage.getItem(currentUserToken)}}*/).pipe(
+    return this.http.get(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000),
-      catchError(() => {
+      catchError((err) => {
+        if(err["statusCode"] == 401 || err["statusCode"] == '401') {
+          this.router.navigate(['login']);
+        }
         loadingError.next(true);
         return of();
       })
@@ -49,9 +52,12 @@ export class EventsService{
   }
   getUserEvents(userId: string, loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events?filter={"where":{"invited_status.user_id":{"inq":["${userId}"]}}}`;
-    return this.http.get(url).pipe(
+    return this.http.get(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000),
-      catchError(() => {
+      catchError((err) => {
+        if(err["statusCode"] == 401 || err["statusCode"] == '401') {
+          this.router.navigate(['login']);
+        }
         loadingError.next(true);
         return of();
       })
@@ -63,9 +69,12 @@ export class EventsService{
   // Get
   getEvent(id, loadingError: Subject<boolean>): Observable<any> {
     const url = `${this.endpoint}/events/${id}`;
-    return this.http.get(url).pipe(
+    return this.http.get(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000),
-      catchError(() => {
+      catchError((err) => {
+        if(err["statusCode"] == 401 || err["statusCode"] == '401') {
+          this.router.navigate(['login']);
+        }
         loadingError.next(true);
         return of();
       })
@@ -94,9 +103,12 @@ export class EventsService{
   deleteEvent(event: any): Observable<Event> {
     const url = `${this.endpoint}/events/${event.id}`;
     event.id = null;
-    return this.http.delete<Event>(url).pipe(
+    return this.http.delete<Event>(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000),
       catchError((err) => {
+        if(err["statusCode"] == 401 || err["statusCode"] == '401') {
+          this.router.navigate(['login']);
+        }
         return throwError(err);
       })
     );
@@ -106,14 +118,14 @@ export class EventsService{
   updateEvent(event: Event): Observable<Event> {
     console.log("Updating", event);
     const url = `${this.endpoint}/events/${event.id}`;
-    return this.http.put<Event>(url, event).pipe(
+    return this.http.put<Event>(url, event, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000)
     );
   }
 
   getInviteStatus(): Observable<any[]> {
     const url = `${this.endpoint}/invite-statuses?filter[fields][es]=false`;
-    return this.http.get<any[]>(url).pipe(
+    return this.http.get<any[]>(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}}).pipe(
       timeout(5000)
     );
   }
@@ -122,6 +134,6 @@ export class EventsService{
   // Get
   getCategories(): Observable<string[]> {
     const url = `${this.endpoint}/event-categories?filter[fields][${this.language}]=false`;
-    return this.http.get<string[]>(url);
+    return this.http.get<string[]>(url, {headers:{'Authorization': 'Bearer ' +localStorage.getItem('currentUserToken')}});
   }
 }

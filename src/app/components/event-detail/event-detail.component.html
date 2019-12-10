@@ -22,12 +22,12 @@
         <ion-row>
           <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="4" size-md="4">
             <ion-img
-              src="https://img.chilango.com/2019/01/47054797_704078543319032_4714674225216205474_n.jpg"></ion-img>
+              src="{{event.photoUrls[0]}}"></ion-img>
           </ion-col>
           <ion-col class="ion-justify-content-center" size-xs="12" size-sm="12" size-lg="8" size-md="8"
                    id="map-holder">
-            <agm-map [latitude]="19.4177876" [longitude]="-99.1673724" text-center>
-              <agm-marker [latitude]="19.4177876" [longitude]="-99.1673724"></agm-marker>
+            <agm-map [latitude]="event.address['lat']" [longitude]="event.address['lng']"  text-center [zoom]="15">
+              <agm-marker [latitude]="event.address['lat']" [longitude]="event.address['lng']"></agm-marker>
             </agm-map>
           </ion-col>
         </ion-row>
@@ -46,10 +46,11 @@
         <ion-row>
           <ion-col>
             <h2>Ubicación</h2>
-            <p>{{event.direction.text}}</p>
+            <p>latitud: {{event.address['lat']}}, longitud: {{event.address['lng']}}</p>
           </ion-col>
         </ion-row>
         <!--         &lt;!&ndash;-->
+        <!--
         <ion-row>
           <ion-col>
             <h2>Invitados</h2>
@@ -67,8 +68,9 @@
               </li>
             </ul>
           </ion-col>
-        </ion-row>
+        </ion-row>-->
         <!--        &ndash;&gt;-->
+        <!--
         <ion-row>
           <ion-list>
             <ion-list-header>
@@ -96,7 +98,7 @@
               </form>
             </ion-item>
           </ion-list>
-        </ion-row>
+        </ion-row>-->
       </ion-col>
     </ion-row>
   </ion-grid>
